@@ -474,3 +474,37 @@ hr {
 .cursor-not-allowed { cursor: not-allowed; }
 
 
+
+/* ===================================================
+   Additional Utility Classes – Simplified Naming
+   =================================================== */
+
+/* ---- Breakpoint Grid Utilities (simplified) ---- */
+@media (min-width: 640px) {
+  .grid-sm-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+  .grid-sm-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 768px) {
+  .grid-md-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+  .grid-md-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid-md-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (min-width: 1024px) {
+  .grid-lg-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid-lg-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .grid-lg-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+/* ---- Spacing Utilities ---- */
+.px-8 { padding-left: 2rem; padding-right: 2rem; }
+.py-2-5 { padding-top: 0.625rem; padding-bottom: 0.625rem; }
+.mt-4 { margin-top: 1rem; }
+.mb-8 { margin-bottom: 2rem; }
+.gap-2 { gap: 0.5rem; }
+.gap-3 { gap: 0.75rem; }
+.w-full { width: 100%; }
+.h-full { height: 100%; }
+
+/* ---- Status Dot Utilities ---- */
+.dot-success { background-color: var(--color-success); }
+.dot-pending { background-color: var(--color-text-muted); }
