@@ -1,0 +1,169 @@
+/* ===================================================
+   PrizePool Section Specific Styles
+   =================================================== */
+
+.prize-section {
+  background-color: var(--color-bg-dim);
+  border-top: 1px solid rgba(45, 52, 64, 0.4);
+  border-bottom: 1px solid rgba(45, 52, 64, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.prize-bg-glow {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20rem;
+  height: 20rem;
+  border-radius: 9999px;
+  background-color: rgba(245, 158, 11, 0.03);
+  filter: blur(48px);
+  pointer-events: none;
+}
+
+.prize-pool-callout {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 1rem 2rem;
+}
+
+.prize-pool-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-text-muted);
+}
+
+.prize-pool-value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--color-text-primary);
+}
+
+.prize-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  overflow: hidden;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.prize-card-accent-top {
+  height: 2px;
+  width: 100%;
+}
+
+.prize-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2.25rem;
+  flex: 1;
+}
+
+.prize-icon-box {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prize-amount {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.prize-tier-label {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-text-muted);
+  margin-top: 0.125rem;
+}
+
+.prize-place-badge {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 9999px;
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prize-place-number {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.75rem;
+  color: var(--color-text-primary);
+}
+
+.prize-place-name {
+  font-size: 0.875rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.prize-perks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  margin-top: auto;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.prize-perk-item {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.prize-perk-icon {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.prize-perk-text {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  font-family: var(--font-sans);
+}
+
+.prize-featured {
+  transform-origin: center;
+}
+
+@media (min-width: 768px) {
+  .prize-featured {
+    transform: translateY(-1rem) scale(1.03);
+  }
+}
+
+.prize-cta-note {
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  margin-top: 1rem;
+}

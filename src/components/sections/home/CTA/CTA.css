@@ -1,0 +1,101 @@
+/* ===================================================
+   CTA Section Specific Styles
+   =================================================== */
+
+.cta-section {
+  background-color: var(--color-bg-dim);
+  border-top: 1px solid rgba(45, 52, 64, 0.4);
+}
+
+.cta-box {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  padding: 4rem;
+  text-align: center;
+}
+
+.cta-glow-top {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16rem;
+  height: 8rem;
+  background-color: rgba(230, 57, 70, 0.06);
+  filter: blur(48px);
+  pointer-events: none;
+}
+
+.cta-glow-bottom {
+  position: absolute;
+  bottom: 0;
+  right: 25%;
+  width: 12rem;
+  height: 6rem;
+  background-color: rgba(79, 124, 172, 0.04);
+  filter: blur(48px);
+  pointer-events: none;
+}
+
+.cta-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+.cta-heading {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 0.9;
+  font-size: 3rem;
+}
+
+.cta-sub {
+  color: var(--color-text-secondary);
+  font-size: 1rem;
+  line-height: 1.625;
+  font-family: var(--font-sans);
+  margin: 0;
+}
+
+.cta-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cta-indicator-dot {
+  width: 0.25rem;
+  height: 0.25rem;
+  border-radius: 9999px;
+  background-color: var(--color-accent);
+}
+
+.cta-indicator-text {
+  font-family: var(--font-mono);
+  font-size: 0.575rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 768px) {
+  .cta-box {
+    padding: 6rem;
+  }
+  .cta-heading {
+    font-size: 4.5rem;
+  }
+  .cta-sub {
+    font-size: 1.125rem;
+  }
+}

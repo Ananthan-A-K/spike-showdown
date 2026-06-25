@@ -1,0 +1,145 @@
+/* ===================================================
+   Navbar Component Specific Styles
+   =================================================== */
+
+.navbar {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.navbar-scrolled {
+  background-color: rgba(15, 17, 21, 0.95);
+  border-bottom: 1px solid rgba(45, 52, 64, 0.6);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.navbar-transparent {
+  background-color: transparent;
+}
+
+.navbar-logo {
+  text-decoration: none;
+}
+
+.navbar-logo-icon {
+  width: 2rem;
+  height: 2rem;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.navbar-logo-bg {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(230, 57, 70, 0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(230, 57, 70, 0.25);
+  transition: background-color 0.3s ease;
+}
+
+.navbar-logo:hover .navbar-logo-bg {
+  background-color: rgba(230, 57, 70, 0.15);
+}
+
+.navbar-logo-text {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.0625rem;
+  color: var(--color-text-primary);
+  letter-spacing: -0.025em;
+  line-height: 1;
+}
+
+.navbar-logo-sub {
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  margin-top: 0.125rem;
+}
+
+.navbar-desktop-link {
+  position: relative;
+  padding: 0.625rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  transition: color 0.2s ease;
+  border-radius: 12px;
+  text-decoration: none;
+}
+
+.navbar-desktop-link-active {
+  color: var(--color-text-primary);
+}
+
+.navbar-desktop-link-inactive {
+  color: var(--color-text-muted);
+}
+
+.navbar-desktop-link-inactive:hover {
+  color: var(--color-text-secondary);
+}
+
+.navbar-link-active-indicator {
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+}
+
+.navbar-link-label {
+  position: relative;
+  z-index: 10;
+}
+
+/* Hamburger button */
+.navbar-hamburger {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.navbar-hamburger:hover {
+  color: var(--color-text-primary);
+}
+
+/* Mobile menu drawer */
+.navbar-mobile-drawer {
+  background-color: rgba(15, 17, 21, 0.98);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+}
+
+.navbar-mobile-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(45, 52, 64, 0.6);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.5rem;
+  letter-spacing: -0.025em;
+  transition: color 0.2s ease;
+  text-decoration: none;
+}
+
+.navbar-mobile-link-active {
+  color: var(--color-accent);
+}
+
+.navbar-mobile-link-inactive {
+  color: var(--color-text-secondary);
+}
+
+.navbar-mobile-link-inactive:hover {
+  color: var(--color-text-primary);
+}

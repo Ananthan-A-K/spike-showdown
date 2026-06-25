@@ -1,0 +1,45 @@
+/* ===================================================
+   StatCard Component Specific Styles
+   =================================================== */
+
+.stat-number {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--color-text-primary);
+  display: block;
+}
+
+.stat-label {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--color-text-muted);
+  display: block;
+  margin-top: 0.25rem;
+}
+
+.stat-desc {
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
+  font-family: var(--font-sans);
+  line-height: 1.5;
+}
+
+/* Sizes */
+.stat-num-sm { font-size: 1.875rem; }
+.stat-lbl-sm { font-size: 0.6rem; }
+
+.stat-num-md { font-size: 2.25rem; }
+.stat-lbl-md { font-size: 0.65rem; }
+
+.stat-num-lg { font-size: 3rem; }
+.stat-lbl-lg { font-size: 0.7rem; }
+
+@media (min-width: 768px) {
+  .stat-num-sm { font-size: 2.25rem; }
+  .stat-num-md { font-size: 3rem; }
+  .stat-num-lg { font-size: 4.5rem; }
+}

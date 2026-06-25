@@ -1,0 +1,70 @@
+/* ===================================================
+   CountdownTimer Component Specific Styles
+   =================================================== */
+
+.countdown-digit {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--color-text-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.countdown-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  min-w: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.countdown-card-shine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(230, 57, 70, 0.2), transparent);
+}
+
+.countdown-label {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--color-text-muted);
+}
+
+.countdown-colon {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--color-border);
+  margin-bottom: 1.75rem;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .countdown-card {
+    padding: 1rem 1.5rem;
+    min-width: 90px;
+  }
+  .countdown-colon {
+    font-size: 2.25rem;
+    margin-bottom: 2.25rem;
+  }
+  .countdown-digit-value {
+    font-size: 3rem;
+  }
+}
+
+/* Fallback default size for text */
+.countdown-digit-value {
+  font-size: 1.875rem;
+}

@@ -1,0 +1,92 @@
+/* ===================================================
+   SectionHeading Component Specific Styles
+   =================================================== */
+
+.section-heading {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-heading-center {
+  text-align: center;
+  align-items: center;
+}
+
+.section-heading-left {
+  text-align: left;
+  align-items: flex-start;
+}
+
+.section-heading-eyebrow-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.section-heading-line {
+  display: block;
+  height: 1px;
+  width: 2rem;
+  background-color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.section-heading-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--color-accent);
+}
+
+.section-heading-title {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  line-height: 0.95;
+  color: var(--color-text-primary);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.section-heading-title-center {
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-heading-title-left {
+  max-width: 40rem;
+}
+
+.section-heading-subtitle {
+  color: var(--color-text-muted);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  font-family: var(--font-sans);
+  margin: 0;
+}
+
+.section-heading-subtitle-center {
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-heading-subtitle-left {
+  max-width: 520px;
+}
+
+@media (min-width: 768px) {
+  .section-heading-title {
+    font-size: 3.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-heading-title {
+    font-size: 4.25rem;
+  }
+}

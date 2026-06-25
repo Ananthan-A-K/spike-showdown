@@ -1,0 +1,125 @@
+/* ===================================================
+   Rules Page Specific Styles
+   =================================================== */
+
+.rules-sidebar {
+  position: sticky;
+  top: 108px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* gap-6 */
+}
+
+/* Notice Box */
+.rules-notice-box {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 1rem; /* rounded-2xl */
+  padding: 2rem; /* p-8 */
+}
+
+.rules-notice-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-accent);
+  display: block;
+  margin-bottom: 0.75rem; /* mb-3 */
+}
+
+.rules-notice-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.125rem; /* text-lg */
+  color: var(--color-text-primary);
+  margin-bottom: 1rem; /* mb-4 */
+}
+
+.rules-notice-desc {
+  color: var(--color-text-muted);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  font-family: var(--font-sans);
+  margin-bottom: 1.25rem; /* mb-5 */
+}
+
+.rules-bullet-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; /* gap-3 */
+}
+
+.rules-bullet-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem; /* gap-3 */
+}
+
+.rules-bullet-dot {
+  width: 0.375rem; /* w-1.5 */
+  height: 0.375rem; /* h-1.5 */
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.rules-bullet-text {
+  color: var(--color-text-secondary);
+  font-size: 0.75rem; /* text-xs */
+  font-family: var(--font-sans);
+}
+
+/* Help Clarification Box */
+.rules-help-box {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 1rem; /* rounded-2xl */
+  padding: 2rem; /* p-8 */
+}
+
+/* Accordion Outer Box */
+.rules-category-box {
+  background-color: rgba(23, 26, 33, 0.4);
+  border: 1px solid rgba(45, 52, 64, 0.6);
+  border-radius: 1rem; /* rounded-2xl */
+  padding: 1.5rem; /* p-6 */
+  margin-bottom: 2.5rem;
+}
+
+.rules-category-box:last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  .rules-category-box {
+    padding: 2rem; /* md:p-8 */
+  }
+}
+
+.rules-category-icon {
+  width: 2.5rem; /* w-10 */
+  height: 2.5rem; /* h-10 */
+  border-radius: 0.5rem; /* rounded-lg */
+  background-color: rgba(230, 57, 70, 0.1);
+  border: 1px solid rgba(230, 57, 70, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent);
+}
+
+.rules-category-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.25rem; /* text-xl */
+  color: var(--color-text-primary);
+  line-height: 1;
+}
+
+.rules-category-section {
+  color: var(--color-text-muted);
+  font-size: 0.75rem; /* text-xs */
+  font-family: var(--font-sans);
+  margin-top: 0.25rem; /* mt-1 */
+}
