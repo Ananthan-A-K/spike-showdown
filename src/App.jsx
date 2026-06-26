@@ -10,6 +10,8 @@ import Brackets from './pages/Brackets/Brackets';
 import Rules from './pages/Rules/Rules';
 import Contact from './pages/Contact/Contact';
 import Register from './pages/Register/Register';
+import Gallery from './pages/Gallery/Gallery';
+
 
 export default function App() {
   return (
@@ -31,6 +33,8 @@ export default function App() {
           <Route path="/rules" element={<Rules />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/gallery" element={<Gallery />} />
+
         </Routes>
       </main>
 

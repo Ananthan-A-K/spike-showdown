@@ -1,10 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { Image, ArrowRight } from 'lucide-react';
 import SectionHeading from '../../../ui/SectionHeading/SectionHeading';
 import StatCard from '../../../ui/StatCard/StatCard';
 import { TOURNAMENT } from '../../../../constants/data';
 import { containerVariants, itemVariants, fadeRight } from '../../../../animations/variants';
 import './Statistics.css';
+
 
 export default function Statistics() {
   return (
@@ -29,14 +32,23 @@ export default function Statistics() {
               whileInView="visible"
               viewport={{ once: true, margin: '-60px' }}
               variants={fadeRight}
-              className="mt-10 flex items-center gap-4"
+              className="mt-10 flex flex-wrap items-center gap-8"
             >
-              <div className="stats-date-divider" />
-              <div className="flex flex-col gap-1">
-                <span className="stats-date-value">August 2025</span>
-                <span className="stats-date-sub">Grand Final Date</span>
+              <div className="flex items-center gap-4">
+                <div className="stats-date-divider" />
+                <div className="flex flex-col gap-1">
+                  <span className="stats-date-value">August 2025</span>
+                  <span className="stats-date-sub">Grand Final Date</span>
+                </div>
               </div>
+
+              <Link to="/gallery" className="btn btn-outline flex items-center gap-2">
+                <Image size={16} />
+                View Event Gallery
+                <ArrowRight size={14} className="opacity-70" />
+              </Link>
             </motion.div>
+
           </div>
 
           {/* Right: Stats Grid */}
