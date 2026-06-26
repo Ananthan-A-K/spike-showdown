@@ -10,7 +10,7 @@
 .gallery-showcase-section {
   position: relative;
   z-index: 10;
-  padding-top: 3.5rem;
+  padding-top: 148px;
   padding-bottom: 7.5rem;
 }
 
@@ -18,7 +18,7 @@
 .gallery-guide-container {
   display: flex;
   justify-content: center;
-  margin-bottom: 4rem;
+  margin-top: 4rem;
 }
 
 .gallery-guide-card {
