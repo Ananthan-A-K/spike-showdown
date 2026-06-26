@@ -15,8 +15,8 @@
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 12px;
-  padding: 0.75rem 1rem;
-  min-w: 70px;
+  padding: 0.7rem 0.8rem;
+  min-width: 4rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -44,9 +44,9 @@
 .countdown-colon {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: var(--color-border);
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.65rem;
   user-select: none;
 }
 
@@ -66,5 +66,23 @@
 
 /* Fallback default size for text */
 .countdown-digit-value {
-  font-size: 1.875rem;
+  font-size: 1.65rem;
+}
+
+@media (max-width: 360px) {
+  .countdown-card {
+    min-width: 3.55rem;
+    padding: 0.65rem 0.55rem;
+  }
+  .countdown-digit-value {
+    font-size: 1.45rem;
+  }
+  .countdown-label {
+    font-size: 0.48rem;
+    letter-spacing: 0.14em;
+  }
+  .countdown-colon {
+    font-size: 1rem;
+    margin-bottom: 1.55rem;
+  }
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronRight } from 'lucide-react';
@@ -11,6 +11,7 @@ export default function Navbar() {
   const location                  = useLocation();
   const scrollY                   = useScrollPosition();
   const isScrolled                = scrollY > 40;
+  const closeMenu                 = useCallback(() => setMenuOpen(false), []);
 
   // Close menu on route change
   useEffect(() => {
@@ -22,6 +23,19 @@ export default function Navbar() {
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
+  }, [menuOpen, closeMenu]);
+
+  useEffect(() => {
+    if (!menuOpen) return undefined;
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        closeMenu();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
   }, [menuOpen]);
 
   return (
@@ -32,7 +46,7 @@ export default function Navbar() {
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 navbar ${
           isScrolled ? 'navbar-scrolled' : 'navbar-transparent'
-        }`}
+        } ${menuOpen ? 'navbar-menu-open' : ''}`}
       >
         <div className="container-xl">
           <div className="navbar-inner">
@@ -97,8 +111,11 @@ export default function Navbar() {
             {/* ── Mobile Hamburger ── */}
             <button
               onClick={() => setMenuOpen(!menuOpen)}
+              type="button"
               className="lg:hidden navbar-hamburger"
-              aria-label="Toggle menu"
+              aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={menuOpen}
+              aria-controls="mobile-navigation"
             >
               <AnimatePresence mode="wait" initial={false}>
                 {menuOpen
@@ -122,13 +139,14 @@ export default function Navbar() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
             className="fixed inset-0 z-40 lg:hidden navbar-mobile-drawer flex flex-col"
+            id="mobile-navigation"
           >
             <motion.div
               initial={{ x: -24, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: -24, opacity: 0 }}
               transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="container-xl flex flex-col gap-1 py-8 flex-1 overflow-y-auto"
+              className="container-xl navbar-mobile-panel"
             >
               {NAV_LINKS.map((link, i) => {
                 const active = location.pathname === link.path;
@@ -141,12 +159,13 @@ export default function Navbar() {
                   >
                     <Link
                       to={link.path}
+                      onClick={closeMenu}
                       className={`navbar-mobile-link ${
                         active ? 'navbar-mobile-link-active' : 'navbar-mobile-link-inactive'
                       }`}
                     >
                       {link.label}
-                      <ChevronRight size={20} className="text-[#2D3440]" />
+                      <ChevronRight size={20} className="navbar-mobile-chevron" />
                     </Link>
                   </motion.div>
                 );
@@ -156,10 +175,11 @@ export default function Navbar() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.35, duration: 0.35 }}
-                className="mt-8"
+                className="navbar-mobile-cta"
               >
                 <Link
                   to="/register"
+                  onClick={closeMenu}
                   className="btn btn-primary w-full justify-center"
                 >
                   Register Your Team
