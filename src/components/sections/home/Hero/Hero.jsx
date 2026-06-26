@@ -88,7 +88,7 @@ function TacticalArtwork() {
       {[...Array(8)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute w-1 h-1 rounded-full bg-[#E63946]"
+          className="hero-particle"
           style={{
             left: `${20 + (i * 9.5)}%`,
             top:  `${15 + (i % 4) * 20}%`,
@@ -116,14 +116,14 @@ function TacticalArtwork() {
         { bottom: '5%', right: '5%', rotate: 180 },
       ].map((pos, i) => (
         <div key={i} className="absolute opacity-20" style={pos}>
-          <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6" style={{ transform: `rotate(${pos.rotate}deg)` }}>
+          <svg viewBox="0 0 24 24" fill="none" className="hero-corner-mark" style={{ transform: `rotate(${pos.rotate}deg)` }}>
             <path d="M0 12 L0 0 L12 0" stroke="#E63946" strokeWidth="1.5" />
           </svg>
         </div>
       ))}
 
       {/* Ambient glow */}
-      <div className="absolute inset-0 bg-radial from-[#E63946]/6 via-transparent to-transparent" />
+      <div className="hero-artwork-ambient" />
     </div>
   );
 }
@@ -139,11 +139,11 @@ export default function Hero() {
       <div className="hero-top-fade" />
       <div className="hero-bottom-fade" />
 
-      <div className="container-xl relative z-20 pt-[120px] pb-20 md:pt-[140px] md:pb-28">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-12 items-center hero-container">
+      <div className="container-xl hero-shell">
+        <div className="hero-container">
 
           {/* ── Left: Content ── */}
-          <div className="flex flex-col gap-10">
+          <div className="hero-content">
 
             {/* Eyebrow badge */}
             <motion.div
@@ -153,7 +153,7 @@ export default function Hero() {
               className="flex items-center gap-3"
             >
               <span className="badge badge-accent">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#E63946] animate-pulse" />
+                <span className="hero-live-dot animate-pulse" />
                 Registration Open
               </span>
               <span className="badge badge-neutral">Season 1</span>
@@ -169,9 +169,9 @@ export default function Hero() {
                 SPIKE
                 <br />
                 <span className="text-gradient-accent">SHOW</span>
-                <span className="text-[#F5F7FA]">DOWN</span>
+                <span className="hero-headline-white">DOWN</span>
               </h1>
-              <div className="flex items-center gap-4 mt-5">
+              <div className="hero-title-subrow">
                 <div className="hero-line-accent" />
                 <span className="hero-headline-sub">
                   The Premier Collegiate Valorant Championship
@@ -195,9 +195,9 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-col gap-3"
+              className="hero-countdown"
             >
-              <p className="font-mono text-[0.5625rem] uppercase tracking-[0.2em] text-[#7D8793]">
+              <p className="hero-countdown-label">
                 Tournament Begins In
               </p>
               <CountdownTimer />
@@ -208,13 +208,13 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-wrap items-center gap-4"
+              className="hero-actions"
             >
-              <Link to="/register" className="btn btn-primary flex items-center gap-2 px-8">
+              <Link to="/register" className="btn btn-primary flex items-center gap-2">
                 Register Team
                 <ArrowRight size={15} />
               </Link>
-              <Link to="/about" className="btn btn-outline flex items-center px-8">
+              <Link to="/about" className="btn btn-outline flex items-center">
                 Learn More
               </Link>
             </motion.div>
@@ -224,7 +224,7 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="flex items-center gap-8 flex-wrap pt-2"
+              className="hero-meta"
             >
               {[
                 { label: '16 Teams', sub: 'Maximum' },
@@ -244,7 +244,7 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="relative h-[420px] md:h-[580px] lg:h-[680px] flex items-center justify-center"
+            className="hero-artwork-stage"
           >
             <TacticalArtwork />
           </motion.div>
@@ -264,7 +264,7 @@ export default function Hero() {
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
         >
-          <ChevronDown size={18} className="text-[#7D8793]" />
+          <ChevronDown size={18} className="hero-scroll-icon" />
         </motion.div>
       </motion.div>
 

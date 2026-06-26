@@ -6,6 +6,14 @@
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 5.5rem;
+  gap: 1.5rem;
+}
+
 .navbar-scrolled {
   background-color: rgba(15, 17, 21, 0.95);
   border-bottom: 1px solid rgba(45, 52, 64, 0.6);
@@ -116,6 +124,7 @@
   background-color: rgba(15, 17, 21, 0.98);
   backdrop-filter: blur(40px);
   -webkit-backdrop-filter: blur(40px);
+  padding-top: 5.5rem;
 }
 
 .navbar-mobile-link {

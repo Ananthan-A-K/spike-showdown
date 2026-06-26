@@ -35,7 +35,7 @@ export default function Navbar() {
         }`}
       >
         <div className="container-xl">
-          <div className="flex items-center justify-between h-[88px]">
+          <div className="navbar-inner">
 
             {/* ── Logo ── */}
             <Link to="/" className="flex items-center gap-3 navbar-logo">
@@ -87,7 +87,7 @@ export default function Navbar() {
             <div className="hidden lg:flex items-center gap-4">
               <Link
                 to="/register"
-                className="btn btn-primary flex items-center gap-2 px-6"
+                className="btn btn-primary btn-sm flex items-center gap-2"
               >
                 Register Team
                 <ChevronRight size={13} />
@@ -121,7 +121,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-40 lg:hidden navbar-mobile-drawer flex flex-col pt-[88px]"
+            className="fixed inset-0 z-40 lg:hidden navbar-mobile-drawer flex flex-col"
           >
             <motion.div
               initial={{ x: -24, opacity: 0 }}
@@ -160,7 +160,7 @@ export default function Navbar() {
               >
                 <Link
                   to="/register"
-                  className="btn btn-primary w-full justify-center text-sm py-4"
+                  className="btn btn-primary w-full justify-center"
                 >
                   Register Your Team
                 </Link>
