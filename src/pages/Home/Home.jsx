@@ -12,7 +12,7 @@ import './Home.css';
 
 const HOME_TOURNAMENT = {
   subtitle: 'The premier collegiate Valorant championship. 24 teams. One champion.',
-  startDate: new Date('2025-08-15T10:00:00'),
+  startDate: new Date('2026-07-24T18:00:00+05:30'),
   ctaIndicators: ['Register Now', '24 Teams Max', '₹5000 Prize Pool'],
   stats: [
     { value: '24', label: 'Teams', suffix: '' },

@@ -178,38 +178,160 @@
 
 .hero-artwork-container {
   position: relative;
-  width: min(78vw, 320px);
-  height: min(78vw, 320px);
+  width: min(90vw, 580px);
+  max-width: 100%;
+  height: min(74vw, 420px);
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.hero-countdown-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 19rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(230, 57, 70, 0.14);
+  background:
+    radial-gradient(circle at 50% 76%, rgba(230, 57, 70, 0.22), transparent 18%),
+    radial-gradient(circle at 50% 54%, rgba(230, 57, 70, 0.08), transparent 44%);
+}
+
+.hero-event-countdown {
+  position: absolute;
+  top: 18%;
+  left: 20%;
+  z-index: 25;
+  transform: translateX(-50%);
+  width: min(74%, 390px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.hero-event-countdown-label {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: var(--color-accent);
+}
+
+.hero-event-countdown-timer {
+  width: 100%;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.hero-event-countdown-timer > div {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.hero-event-countdown .countdown-card {
+  width: 100%;
+  min-width: 0;
+  padding: 0.85rem 0.45rem 0.75rem;
+  box-sizing: border-box;
+  border-radius: 0;
+  border-color: rgba(230, 57, 70, 0.36);
+  background:
+    linear-gradient(135deg, rgba(230, 57, 70, 0.08), rgba(31, 36, 44, 0.72)),
+    var(--color-surface);
+  clip-path: polygon(14px 0, calc(100% - 14px) 0, 100% 14px, 100% calc(100% - 14px), calc(100% - 14px) 100%, 14px 100%, 0 calc(100% - 14px), 0 14px);
+  box-shadow: 0 0 28px rgba(230, 57, 70, 0.08);
+}
+
+.hero-event-countdown .countdown-digit-value {
+  color: var(--color-accent);
+  font-size: clamp(1.8rem, 3.8vw, 2.75rem);
+  letter-spacing: 0;
+  text-shadow: 0 0 24px rgba(230, 57, 70, 0.28);
+}
+
+.hero-event-countdown .countdown-label {
+  font-size: 0.52rem;
+  letter-spacing: 0.16em;
+  color: var(--color-text-secondary);
+}
+
+.hero-event-countdown .countdown-colon {
+  color: var(--color-text-primary);
+  margin-bottom: 1.95rem;
+  font-size: clamp(1.4rem, 5vw, 2.2rem);
+}
+
+.hero-frame-corner {
+  position: absolute;
+  z-index: 30;
+  width: 0.95rem;
+  height: 0.95rem;
+  border-color: var(--color-accent);
+  opacity: 0.75;
+}
+
+.hero-frame-corner-tl {
+  top: 0;
+  left: 0;
+  border-top: 2px solid;
+  border-left: 2px solid;
+}
+
+.hero-frame-corner-tr {
+  top: 0;
+  right: 0;
+  border-top: 2px solid;
+  border-right: 2px solid;
+}
+
+.hero-frame-corner-bl {
+  bottom: 0;
+  left: 0;
+  border-bottom: 2px solid;
+  border-left: 2px solid;
+}
+
+.hero-frame-corner-br {
+  right: 0;
+  bottom: 0;
+  border-right: 2px solid;
+  border-bottom: 2px solid;
 }
 
 .hero-artwork-stage {
   position: relative;
+  width: 100%;
+  max-width: 620px;
   min-height: 18rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: visible;
+  justify-self: center;
+  overflow: hidden;
 }
 
 .hero-outer-ring {
   position: absolute;
-  width: min(82vw, 340px);
-  height: min(82vw, 340px);
-  opacity: 0.1;
+  width: min(64vw, 380px);
+  height: min(64vw, 380px);
+  opacity: 0.18;
 }
 
 .hero-inner-polygon {
   position: absolute;
-  width: min(60vw, 245px);
-  height: min(60vw, 245px);
+  width: min(48vw, 280px);
+  height: min(48vw, 280px);
   opacity: 0.08;
 }
 
 .hero-spike-crystal {
-  width: min(34vw, 135px);
+  width: min(21vw, 110px);
   height: auto;
   max-height: 190px;
 }
@@ -303,19 +425,19 @@
     max-width: none;
   }
   .hero-artwork-container {
-    width: 420px;
-    height: 420px;
+    width: min(90vw, 620px);
+    height: 430px;
   }
   .hero-outer-ring {
-    width: 420px;
-    height: 420px;
+    width: 430px;
+    height: 430px;
   }
   .hero-inner-polygon {
-    width: 300px;
-    height: 300px;
+    width: 315px;
+    height: 315px;
   }
   .hero-spike-crystal {
-    width: 160px;
+    width: 116px;
     max-height: none;
   }
 }
@@ -335,19 +457,19 @@
     min-height: 34rem;
   }
   .hero-artwork-container {
-    height: 580px;
+    height: 480px;
   }
   .hero-outer-ring {
-    width: 520px;
-    height: 520px;
+    width: 470px;
+    height: 470px;
   }
   .hero-inner-polygon {
-    width: 380px;
-    height: 380px;
+    width: 340px;
+    height: 340px;
   }
   .hero-spike-crystal {
-    width: 200px;
-    height: 280px;
+    width: 130px;
+    height: 182px;
   }
 }
 
@@ -376,11 +498,11 @@
     padding-top: 8rem;
   }
   .hero-artwork-stage {
-    min-height: 42rem;
+    min-height: 38rem;
   }
   .hero-artwork-container {
-    height: 680px;
-    width: 100%;
+    height: 520px;
+    width: min(100%, 580px);
   }
 }
 
@@ -424,7 +546,24 @@
     letter-spacing: 0.12em;
   }
   .hero-artwork-stage {
-    min-height: 15rem;
+    min-height: 21rem;
+  }
+  .hero-artwork-container {
+    height: 21rem;
+  }
+  .hero-event-countdown {
+    left: 50%;
+    top: 12%;
+  }
+  .hero-event-countdown .countdown-card {
+    min-width: 0;
+    padding: 0.7rem 0.45rem 0.65rem;
+  }
+  .hero-event-countdown .countdown-label {
+    font-size: 0.42rem;
+  }
+  .hero-event-countdown .countdown-colon {
+    margin-bottom: 1.55rem;
   }
   .hero-scroll-indicator {
     display: none;

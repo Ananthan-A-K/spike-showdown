@@ -5,10 +5,25 @@ import { ArrowRight, ChevronDown } from 'lucide-react';
 import CountdownTimer from '../../../ui/CountdownTimer/CountdownTimer';
 import './Hero.css';
 
-// Abstract tactical SVG artwork
-function TacticalArtwork() {
+function EventCountdownArtwork({ targetDate }) {
   return (
     <div className="hero-artwork-container">
+      <div className="hero-countdown-frame">
+        <div className="hero-frame-corner hero-frame-corner-tl" />
+        <div className="hero-frame-corner hero-frame-corner-tr" />
+        <div className="hero-frame-corner hero-frame-corner-bl" />
+        <div className="hero-frame-corner hero-frame-corner-br" />
+
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+          className="hero-event-countdown"
+        >
+          <p className="hero-event-countdown-label">Event Starts In</p>
+          <CountdownTimer targetDate={targetDate} className="hero-event-countdown-timer" />
+        </motion.div>
+
       {/* Outer rotating ring */}
       <motion.div
         animate={{ rotate: 360 }}
@@ -123,6 +138,7 @@ function TacticalArtwork() {
 
       {/* Ambient glow */}
       <div className="hero-artwork-ambient" />
+      </div>
     </div>
   );
 }
@@ -189,19 +205,6 @@ export default function Hero({ tournament }) {
               Prove your dominance. Claim the prize.
             </motion.p>
 
-            {/* Countdown */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              className="hero-countdown"
-            >
-              <p className="hero-countdown-label">
-                Tournament Begins In
-              </p>
-              <CountdownTimer targetDate={tournament.startDate} />
-            </motion.div>
-
             {/* CTA Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -245,7 +248,7 @@ export default function Hero({ tournament }) {
             transition={{ duration: 1.1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="hero-artwork-stage"
           >
-            <TacticalArtwork />
+            <EventCountdownArtwork targetDate={tournament.startDate} />
           </motion.div>
 
         </div>
