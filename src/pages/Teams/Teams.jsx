@@ -206,7 +206,7 @@ export default function Teams() {
               <div>
                 <p className="font-mono text-[0.6rem] uppercase tracking-widest text-[#E63946]" style={{ marginBottom: '0.5rem' }}>Spots Available</p>
                 <p className="font-display font-bold text-2xl text-[#F5F7FA]">
-                  {16 - TEAMS.length} spots remaining
+                  {24 - TEAMS.length} spots remaining
                 </p>
                 <p className="text-[#7D8793] text-[0.9375rem] font-sans mt-2 leading-relaxed">
                   Registration closes July 15, 2025

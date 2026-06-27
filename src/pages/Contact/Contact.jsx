@@ -1,31 +1,52 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, MessageSquare, Send, CheckCircle2, AlertTriangle, ArrowRight, Instagram } from 'lucide-react';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { ArrowRight, Crosshair, Instagram, Mail, MessageSquare } from 'lucide-react';
 import { PageHeader } from '../About/About';
 import { pageTransition } from '../../animations/variants';
 import './Contact.css';
 
+const CHANNELS = [
+  {
+    icon: MessageSquare,
+    label: 'Discord Server',
+    value: 'discord.gg/spikeshowdown',
+    href: 'https://discord.gg',
+    color: '#5C7AEA',
+  },
+  {
+    icon: Mail,
+    label: 'Direct Email',
+    value: 'support@spikeshowdown.gg',
+    href: 'mailto:support@spikeshowdown.gg',
+    color: '#E63946',
+  },
+  {
+    icon: Instagram,
+    label: 'Instagram',
+    value: '@spikeshowdown.season1',
+    href: 'https://instagram.com',
+    color: '#E1306C',
+  },
+];
+
+const SUPPORT_CONTACTS = [
+  {
+    icon: MessageSquare,
+    label: 'Participant Support',
+    name: 'Sabarinath',
+    handles: ['Registration', 'Match Check-ins', 'Player Queries'],
+    href: 'https://wa.me/8590893609',
+  },
+  {
+    icon: Crosshair,
+    label: 'Event Coordinator',
+    name: 'Vishnu V',
+    handles: ['Tournament Coordination', 'Technical Support', 'General Queries'],
+    href: 'https://wa.me/9633011978',
+  },
+];
+
 export default function Contact() {
-  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
-  const [status, setStatus] = useState('idle'); // idle | submitting | success | error
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!formData.name || !formData.email || !formData.message) {
-      setStatus('error');
-      return;
-    }
-    setStatus('submitting');
-    setTimeout(() => {
-      setStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 1200);
-  };
-
   return (
     <motion.div
       key="contact"
@@ -35,51 +56,27 @@ export default function Contact() {
     >
       <PageHeader
         eyebrow="Support"
-        title="Get in Touch"
-        subtitle="Have questions about registration, scheduling, rules, or sponsorship? Our admin team is here to assist."
+        title="Contact"
+        subtitle="Reach the right tournament contact for SPIKE SHOWDOWN Season 1."
       />
 
       <section className="section-pad">
         <div className="container-xl">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12" style={{ gap: '4rem' }}>
-            
-            {/* Left: Info panel & social channels */}
-            <div className="lg:col-span-5 flex flex-col gap-8">
+          <div className="contact-page-layout">
+            <div className="contact-content-single">
+            <div className="flex flex-col gap-8">
               <div>
                 <span className="contact-connect-eyebrow">Connect</span>
                 <h2 className="font-display font-bold text-3xl md:text-4xl text-[#F5F7FA] leading-tight">
                   Official Channels
                 </h2>
                 <p className="text-[#7D8793] text-sm font-sans mt-4 leading-relaxed">
-                  For immediate support regarding live matches or player disputes, please join our Discord server and create an assistance ticket. For inquiries regarding sponsorships or partnerships, feel free to email us directly.
+                  For immediate support regarding live matches or player disputes, use the support contact. You can also follow the official channels for tournament updates.
                 </p>
               </div>
 
-              {/* Channels Grid */}
               <div className="flex flex-col gap-4">
-                {[
-                  {
-                    icon: MessageSquare,
-                    label: 'Discord Server',
-                    value: 'discord.gg/spikeshowdown',
-                    href: 'https://discord.gg',
-                    color: '#5C7AEA',
-                  },
-                  {
-                    icon: Mail,
-                    label: 'Direct Email',
-                    value: 'support@spikeshowdown.gg',
-                    href: 'mailto:support@spikeshowdown.gg',
-                    color: '#E63946',
-                  },
-                  {
-                    icon: Instagram,
-                    label: 'Instagram',
-                    value: '@spikeshowdown.season1',
-                    href: 'https://instagram.com',
-                    color: '#E1306C',
-                  },
-                ].map((chan) => {
+                {CHANNELS.map((chan) => {
                   const Icon = chan.icon;
                   return (
                     <a
@@ -106,146 +103,74 @@ export default function Contact() {
               </div>
 
               <div className="contact-response-card">
-                <h3 className="font-display font-bold text-sm text-[#F5F7FA]" style={{ marginBottom: '1rem' }}>Expected Response Times</h3>
+                <h3 className="font-display font-bold text-sm text-[#F5F7FA]" style={{ marginBottom: '1rem' }}>
+                  Expected Response Times
+                </h3>
                 <div className="flex flex-col mt-4">
                   <div className="response-time-row">
-                    <span className="text-[#7D8793]">Discord Tickets</span>
-                    <span className="response-time-fast">Within 1 hour</span>
+                    <span className="text-[#7D8793]">WhatsApp Support</span>
+                    <span className="response-time-fast">Fastest</span>
                   </div>
                   <div className="response-divider" />
                   <div className="response-time-row">
                     <span className="text-[#7D8793]">Email Queries</span>
-                    <span className="response-time-normal">1–2 business days</span>
+                    <span className="response-time-normal">1-2 business days</span>
                   </div>
                 </div>
               </div>
             </div>
-
-            {/* Right: Message Form */}
-            <div className="lg:col-span-7">
-              <div className="contact-form-box">
-                
-                <div style={{ marginBottom: '2.5rem' }}>
-                  <h3 className="contact-form-title">Send a Message</h3>
-                  <p className="contact-form-desc">Use the contact form below to drop us a line.</p>
-                </div>
-
-                <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="name" className="input-label">Your Name *</label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        required
-                        placeholder="e.g. Arjun Mehta"
-                        value={formData.name}
-                        onChange={handleChange}
-                        className="input-field"
-                        disabled={status === 'submitting' || status === 'success'}
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="email" className="input-label">Email Address *</label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        required
-                        placeholder="arjun@college.edu"
-                        value={formData.email}
-                        onChange={handleChange}
-                        className="input-field"
-                        disabled={status === 'submitting' || status === 'success'}
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label htmlFor="subject" className="input-label">Subject</label>
-                    <input
-                      type="text"
-                      id="subject"
-                      name="subject"
-                      placeholder="How can we help you?"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      className="input-field"
-                      disabled={status === 'submitting' || status === 'success'}
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="message" className="input-label">Message *</label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      required
-                      rows={5}
-                      placeholder="Write your message here..."
-                      value={formData.message}
-                      onChange={handleChange}
-                      className="input-field"
-                      style={{ resize: 'none' }}
-                      disabled={status === 'submitting' || status === 'success'}
-                    />
-                  </div>
-
-                  <AnimatePresence mode="wait">
-                    {status === 'success' && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
-                        className="contact-alert-success"
-                      >
-                        <CheckCircle2 size={18} style={{ marginTop: '0.125rem' }} className="flex-shrink-0" />
-                        <div>
-                          <p className="font-display font-bold text-sm">Message Sent Successfully</p>
-                          <p className="contact-alert-details">Thank you! Our coordinators will contact you soon.</p>
-                        </div>
-                      </motion.div>
-                    )}
-
-                    {status === 'error' && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
-                        className="contact-alert-error"
-                      >
-                        <AlertTriangle size={18} style={{ marginTop: '0.125rem' }} className="flex-shrink-0" />
-                        <div>
-                          <p className="font-display font-bold text-sm">Incomplete Fields</p>
-                          <p className="contact-alert-details">Please fill in all required fields marked with * before submitting.</p>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-
-                  <button
-                    type="submit"
-                    className="btn btn-primary w-full justify-center gap-2 mt-4"
-                    disabled={status === 'submitting' || status === 'success'}
-                  >
-                    {status === 'submitting' ? (
-                      <>
-                        <div className="contact-spinner" />
-                        <span>Sending...</span>
-                      </>
-                    ) : (
-                      <>
-                        <Send size={14} />
-                        <span>Send Message</span>
-                      </>
-                    )}
-                  </button>
-                </form>
-
-              </div>
             </div>
 
+            <motion.aside
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              className="contact-support-panel"
+            >
+              <div>
+                <h2 className="contact-support-title">Need Assistance?</h2>
+                <p className="contact-support-subtitle">
+                  Contact the appropriate organizer for quick support during the tournament.
+                </p>
+              </div>
+
+              <div className="contact-support-list">
+                {SUPPORT_CONTACTS.map(({ icon: Icon, label, name, handles, href }, index) => (
+                  <div key={label}>
+                    {index > 0 && <div className="contact-support-divider" />}
+                    <div className="contact-support-row">
+                      <div className="contact-support-icon">
+                        <Icon size={22} />
+                      </div>
+
+                      <div className="contact-support-body">
+                        <p className="contact-support-label">{label}</p>
+                        <h3 className="contact-support-name">{name}</h3>
+
+                        <div className="contact-support-handles">
+                          <span>Handles:</span>
+                          <ul>
+                            {handles.map((item) => (
+                              <li key={item}>{item}</li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        <a
+                          href={href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="contact-support-button"
+                        >
+                          Chat on WhatsApp
+                          <ArrowRight size={14} />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.aside>
           </div>
         </div>
       </section>
