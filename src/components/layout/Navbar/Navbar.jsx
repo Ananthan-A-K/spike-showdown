@@ -2,9 +2,19 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronRight } from 'lucide-react';
-import { NAV_LINKS } from '../../../constants/data';
 import { useScrollPosition } from '../../../hooks';
 import './Navbar.css';
+
+const NAV_LINKS = [
+  { label: 'Home', path: '/' },
+  { label: 'About', path: '/about' },
+  { label: 'Schedule', path: '/schedule' },
+  { label: 'Teams', path: '/teams' },
+  { label: 'Brackets', path: '/brackets' },
+  { label: 'Rules', path: '/rules' },
+  { label: 'Gallery', path: '/gallery' },
+  { label: 'Contact', path: '/contact' },
+];
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen]   = useState(false);
@@ -36,7 +46,7 @@ export default function Navbar() {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [menuOpen]);
+  }, [menuOpen, closeMenu]);
 
   return (
     <>

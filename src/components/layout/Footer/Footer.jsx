@@ -2,8 +2,23 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { MessageSquare, Instagram, Mail, Twitter, Youtube, ArrowUpRight } from 'lucide-react';
-import { NAV_LINKS, TOURNAMENT } from '../../../constants/data';
 import './Footer.css';
+
+const NAV_LINKS = [
+  { label: 'Home', path: '/' },
+  { label: 'About', path: '/about' },
+  { label: 'Schedule', path: '/schedule' },
+  { label: 'Teams', path: '/teams' },
+  { label: 'Brackets', path: '/brackets' },
+  { label: 'Rules', path: '/rules' },
+  { label: 'Gallery', path: '/gallery' },
+  { label: 'Contact', path: '/contact' },
+];
+
+const EVENT_INFO = {
+  date: 'August 2025',
+  prizePool: '₹50,000',
+};
 
 const SOCIALS = [
   { icon: MessageSquare, label: 'Discord',   href: 'https://discord.gg' },
@@ -114,11 +129,11 @@ export default function Footer() {
             <div className="flex flex-col gap-3">
               <div>
                 <p className="footer-info-item-label">Date</p>
-                <p className="footer-info-item-val">{TOURNAMENT.date}</p>
+                <p className="footer-info-item-val">{EVENT_INFO.date}</p>
               </div>
               <div>
                 <p className="footer-info-item-label">Prize Pool</p>
-                <p className="footer-info-item-val">{TOURNAMENT.prizePool}</p>
+                <p className="footer-info-item-val">{EVENT_INFO.prizePool}</p>
               </div>
               <div>
                 <p className="footer-info-item-label">Format</p>

@@ -11,7 +11,7 @@ const CORNER_DECORATIONS = [
   { bottom: '1rem', right: '1rem', rotate: 180 },
 ];
 
-export default function CTA() {
+export default function CTA({ indicators = [] }) {
   return (
     <section className="section-pad cta-section">
       <div className="container-xl">
@@ -95,7 +95,7 @@ export default function CTA() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="flex items-center gap-6 flex-wrap justify-center"
             >
-              {['Free Entry', '16 Teams Max', '₹50K Prize Pool'].map((item) => (
+              {indicators.map((item) => (
                 <div key={item} className="cta-indicator">
                   <div className="cta-indicator-dot" />
                   <span className="cta-indicator-text">{item}</span>

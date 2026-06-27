@@ -59,6 +59,62 @@
   padding: 2rem; /* p-8 */
 }
 
+.register-link-card {
+  max-width: 48rem;
+  margin: 0 auto;
+  background-color: rgba(23, 26, 33, 0.4);
+  border: 1px solid rgba(45, 52, 64, 0.6);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.75rem;
+}
+
+@media (min-width: 768px) {
+  .register-link-card {
+    padding: 3.5rem;
+  }
+}
+
+.register-link-copy {
+  max-width: 34rem;
+}
+
+.register-link-text {
+  margin-top: 1rem;
+  color: var(--color-text-muted);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.register-link-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.register-google-form-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0 2rem;
+}
+
+.register-link-note {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: var(--color-text-muted);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+}
+
 @media (min-width: 768px) {
   .register-step-box {
     padding: 3rem; /* md:p-12 */

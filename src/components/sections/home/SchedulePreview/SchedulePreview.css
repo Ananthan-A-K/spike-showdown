@@ -93,26 +93,26 @@
   border-style: solid;
 }
 
-.schedule-card-wrapper {
+.schedule-preview-card-wrapper {
   margin-left: 4rem;
 }
 
 @media (min-width: 768px) {
-  .schedule-card-wrapper {
+  .schedule-preview-card-wrapper {
     margin-left: 0;
     width: 46%;
   }
-  .schedule-event-row-left .schedule-card-wrapper {
+  .schedule-event-row-left .schedule-preview-card-wrapper {
     margin-left: auto;
     padding-left: 4rem;
   }
-  .schedule-event-row-right .schedule-card-wrapper {
+  .schedule-event-row-right .schedule-preview-card-wrapper {
     margin-right: auto;
     padding-right: 4rem;
   }
 }
 
-.schedule-card {
+.schedule-preview-card {
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 16px;
@@ -120,31 +120,32 @@
   transition: border-color 0.3s ease;
 }
 
-.schedule-card:hover {
+.schedule-preview-card:hover {
   border-color: rgba(230, 57, 70, 0.2);
 }
 
-.schedule-card-meta {
+.schedule-preview-card-meta {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 0.5rem;
   margin-bottom: 0.5rem;
 }
 
-.schedule-card-date {
+.schedule-preview-card-date {
   font-family: var(--font-mono);
   font-size: 0.55rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
 }
 
-.schedule-card-sep {
+.schedule-preview-card-sep {
   font-family: var(--font-mono);
   font-size: 0.55rem;
   color: var(--color-text-muted);
 }
 
-.schedule-card-time {
+.schedule-preview-card-time {
   font-family: var(--font-mono);
   font-size: 0.55rem;
   text-transform: uppercase;
@@ -152,7 +153,7 @@
   color: var(--color-text-muted);
 }
 
-.schedule-card-title {
+.schedule-preview-card-title {
   font-family: var(--font-display);
   font-weight: 600;
   color: var(--color-text-primary);
@@ -161,12 +162,31 @@
   margin-bottom: 0.5rem;
 }
 
-.schedule-card-desc {
+.schedule-preview-card-desc {
   color: var(--color-text-muted);
   font-size: 0.8125rem;
   line-height: 1.6;
   font-family: var(--font-sans);
   margin: 0;
+}
+
+@media (max-width: 420px) {
+  .schedule-preview-card-wrapper {
+    margin-left: 3.5rem;
+  }
+
+  .schedule-preview-card {
+    padding: 1.25rem;
+  }
+
+  .schedule-dot {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .schedule-timeline-line {
+    left: 20px;
+  }
 }
 
 .schedule-more-link {

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Target, Eye, Users, Shield, Zap } from 'lucide-react';
 import SectionHeading from '../../components/ui/SectionHeading/SectionHeading';
-import { TOURNAMENT } from '../../constants/data';
 import { pageTransition, containerVariants, itemVariants, fadeLeft, fadeRight } from '../../animations/variants';
 import './About.css';
 
@@ -16,10 +15,10 @@ const TIMELINE_ITEMS = [
 ];
 
 const VALUES = [
-  { icon: Target, title: 'Precision',     desc: 'Every match, every decision, made with competitive precision and integrity.' },
-  { icon: Shield, title: 'Fair Play',     desc: 'A level playing field for every participant. Integrity is non-negotiable.' },
-  { icon: Users,  title: 'Community',     desc: 'Building a vibrant esports community that lasts beyond Season 1.' },
-  { icon: Zap,    title: 'Excellence',    desc: 'Demanding the highest standard from players, organizers, and the platform.' },
+  { icon: Target, title: 'Competitive Integrity', desc: 'Every match is conducted with transparency, fairness, and strict rule enforcement to ensure a balanced competitive environment.' },
+  { icon: Shield, title: 'Fair Play', desc: 'Respect, sportsmanship, and zero tolerance for cheating create an equal opportunity for every team to compete.' },
+  { icon: Users, title: 'Community', desc: 'Spike Showdown brings together students and Valorant enthusiasts to build a stronger and more connected esports community.' },
+  { icon: Zap, title: 'Professional Experience', desc: 'From registrations to the Grand Final, every aspect of the tournament is organized to deliver a smooth and memorable competitive experience.' },
 ];
 
 function PageHeader({ eyebrow, title, subtitle }) {
@@ -111,8 +110,8 @@ export default function About() {
                   <span className="about-card-title">Our Goal</span>
                 </div>
                 <p className="about-card-text">
-                  Season 1 sets the foundation. We aim to host 16 elite teams, deliver
-                  professional match coverage, and award ₹50,000 to the best performers.
+                  Season 1 sets the foundation. We aim to host 24 elite teams, deliver
+                  professional match coverage, and award ₹5000 to the best performers.
                 </p>
               </div>
 
@@ -142,10 +141,10 @@ export default function About() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { label: 'Format',    value: 'Swiss + Single Elim', sub: 'Group stage to Grand Final' },
-              { label: 'Teams',    value: '16 Teams',             sub: 'Maximum capacity' },
-              { label: 'Platform', value: 'Valorant PC',          sub: 'Mumbai server region' },
-              { label: 'Finals',   value: 'LAN Event',            sub: 'August 15, 2025' },
+              { label: 'Format', value: 'Knockout → Champions Stage', sub: 'Two elimination rounds followed by an elite Round Robin stage.' },
+              { label: 'Teams', value: '24 Teams', sub: '12 Teams per Bracket (A & B)' },
+              { label: 'Platform', value: 'Valorant PC', sub: 'Mumbai server region' },
+              { label: 'Season 1 Finals', value: 'Online Event' },
             ].map(({ label, value, sub }) => (
               <div key={label} className="about-card-lg">
                 <p className="info-card-label">{label}</p>

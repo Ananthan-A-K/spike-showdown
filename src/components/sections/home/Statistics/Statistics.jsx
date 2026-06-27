@@ -4,12 +4,11 @@ import { motion } from 'framer-motion';
 import { Image, ArrowRight } from 'lucide-react';
 import SectionHeading from '../../../ui/SectionHeading/SectionHeading';
 import StatCard from '../../../ui/StatCard/StatCard';
-import { TOURNAMENT } from '../../../../constants/data';
 import { containerVariants, itemVariants, fadeRight } from '../../../../animations/variants';
 import './Statistics.css';
 
 
-export default function Statistics() {
+export default function Statistics({ stats }) {
   return (
     <section className="section-pad stats-section">
 
@@ -37,8 +36,8 @@ export default function Statistics() {
               <div className="flex items-center gap-4">
                 <div className="stats-date-divider" />
                 <div className="flex flex-col gap-1">
-                  <span className="stats-date-value">August 2025</span>
-                  <span className="stats-date-sub">Grand Final Date</span>
+                  <span className="stats-date-value">July 2025</span>
+                
                 </div>
               </div>
 
@@ -59,7 +58,7 @@ export default function Statistics() {
             variants={containerVariants}
             className="grid grid-cols-2 gap-6"
           >
-            {TOURNAMENT.stats.map(({ value, label, suffix }, i) => (
+            {stats.map(({ value, label, suffix }, i) => (
               <motion.div
                 key={label}
                 variants={itemVariants}

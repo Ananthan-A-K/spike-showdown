@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Trophy, Medal, Award, ArrowRight, Check } from 'lucide-react';
 import SectionHeading from '../../../ui/SectionHeading/SectionHeading';
-import { PRIZES } from '../../../../constants/data';
 import { containerVariants, itemVariants } from '../../../../animations/variants';
 import './PrizePool.css';
 
@@ -13,7 +12,7 @@ const TIER_CONFIG = {
   bronze: { icon: Award,  color: '#CD7F32', glow: 'rgba(205,127,50,0.10)', border: 'rgba(205,127,50,0.20)' },
 };
 
-export default function PrizePool() {
+export default function PrizePool({ prizes, totalPrizePool }) {
   return (
     <section className="section-pad prize-section">
 
@@ -24,7 +23,7 @@ export default function PrizePool() {
         <div className="text-center mb-20">
           <SectionHeading
             eyebrow="Prize Pool"
-            title={<>Compete for<br /><em className="not-italic" style={{ color: 'var(--color-accent)' }}>₹50,000</em></>}
+            title={<>Compete for<br /><em className="not-italic" style={{ color: 'var(--color-accent)' }}>{totalPrizePool}</em></>}
             subtitle="The top teams walk away with prizes, recognition, and the title of SPIKE SHOWDOWN Champions."
             align="center"
           />
@@ -41,7 +40,7 @@ export default function PrizePool() {
           <div className="prize-pool-callout">
             <div className="w-2 h-2 rounded-full bg-[#E63946] animate-pulse" />
             <span className="prize-pool-label">Total Prize Pool</span>
-            <span className="prize-pool-value">₹50,000</span>
+            <span className="prize-pool-value">{totalPrizePool}</span>
           </div>
         </motion.div>
 
@@ -52,7 +51,7 @@ export default function PrizePool() {
           variants={containerVariants}
           className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10"
         >
-          {PRIZES.map((prize, i) => {
+          {prizes.map((prize, i) => {
             const cfg = TIER_CONFIG[prize.tier];
             const Icon = cfg.icon;
             const isFirst = i === 0;

@@ -4,13 +4,12 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import SectionHeading from '../../../ui/SectionHeading/SectionHeading';
 import TeamCard from '../../../ui/TeamCard/TeamCard';
-import { TEAMS } from '../../../../constants/data';
 import { containerVariants } from '../../../../animations/variants';
 import './FeaturedTeams.css';
 
-const FEATURED = TEAMS.slice(0, 3);
+export default function FeaturedTeams({ teams }) {
+  const featuredTeams = teams.slice(0, 3);
 
-export default function FeaturedTeams() {
   return (
     <section className="section-pad" style={{ backgroundColor: 'var(--color-bg-base)' }}>
       <div className="container-xl">
@@ -37,7 +36,7 @@ export default function FeaturedTeams() {
           variants={containerVariants}
           className="grid grid-cols-1 md:grid-cols-3 gap-8"
         >
-          {FEATURED.map((team, i) => (
+          {featuredTeams.map((team, i) => (
             <TeamCard key={team.id} team={team} index={i} />
           ))}
         </motion.div>

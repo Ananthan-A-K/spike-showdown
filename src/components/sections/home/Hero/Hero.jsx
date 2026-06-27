@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 import CountdownTimer from '../../../ui/CountdownTimer/CountdownTimer';
-import { TOURNAMENT } from '../../../../constants/data';
 import './Hero.css';
 
 // Abstract tactical SVG artwork
@@ -128,7 +127,7 @@ function TacticalArtwork() {
   );
 }
 
-export default function Hero() {
+export default function Hero({ tournament }) {
   return (
     <section className="hero-section">
 
@@ -186,7 +185,7 @@ export default function Hero() {
               transition={{ duration: 0.7, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
               className="hero-desc"
             >
-              {TOURNAMENT.subtitle}. Compete with the best collegiate teams.
+              {tournament.subtitle}. Compete with the best collegiate teams.
               Prove your dominance. Claim the prize.
             </motion.p>
 
@@ -200,7 +199,7 @@ export default function Hero() {
               <p className="hero-countdown-label">
                 Tournament Begins In
               </p>
-              <CountdownTimer />
+              <CountdownTimer targetDate={tournament.startDate} />
             </motion.div>
 
             {/* CTA Buttons */}

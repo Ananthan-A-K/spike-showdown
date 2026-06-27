@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Lock, Trophy, Crown, Star } from 'lucide-react';
 import { PageHeader } from '../About/About';

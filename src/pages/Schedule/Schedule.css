@@ -102,7 +102,7 @@
   width: calc(100% - 70px);
 }
 
-.schedule-card {
+.schedule-page-card {
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 0.75rem; /* rounded-xl */
@@ -110,13 +110,14 @@
   transition: border-color 0.25s ease;
 }
 
-.schedule-card:hover {
+.schedule-page-card:hover {
   border-color: rgba(230, 57, 70, 0.2);
 }
 
-.schedule-meta {
+.schedule-page-meta {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 1rem; /* gap-4 */
   padding-top: 0.75rem; /* pt-3 */
   border-top: 1px solid var(--color-border);
@@ -129,34 +130,58 @@
   }
 
   .schedule-row {
-    flex-direction: row;
-  }
-  
-  .schedule-row-reverse {
-    flex-direction: row-reverse;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 6.75rem minmax(0, 1fr);
+    align-items: start;
   }
 
   .schedule-node {
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
+    left: auto;
+    top: 1rem;
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: center;
+    transform: none;
   }
 
   .schedule-content {
+    grid-column: 3;
+    grid-row: 1;
     margin-left: 0;
-    width: 45%;
-  }
-
-  .schedule-row .schedule-content {
-    margin-left: auto;
-    padding-left: 5%; /* pl-[10%] in tailwind is big, let's keep it clean */
+    width: 100%;
+    padding-left: 2.5rem;
   }
 
   .schedule-row-reverse .schedule-content {
-    margin-right: auto;
-    padding-right: 5%;
+    grid-column: 1;
+    padding-left: 0;
+    padding-right: 2.5rem;
   }
   
-  .schedule-card {
+  .schedule-page-card {
     padding: 1.5rem; /* md:p-6 */
+  }
+}
+
+@media (max-width: 420px) {
+  .schedule-filter-btn,
+  .schedule-filter-btn-active {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .schedule-content {
+    margin-left: 60px;
+    width: calc(100% - 60px);
+  }
+
+  .schedule-node-box {
+    width: 46px;
+    height: 46px;
+  }
+
+  .schedule-track-line {
+    left: 23px;
   }
 }

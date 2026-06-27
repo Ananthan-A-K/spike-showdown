@@ -1,10 +1,56 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import DomeGallery from '../../components/ui/DomeGallery/DomeGallery';
-import { GALLERY_IMAGES } from '../../constants/data';
 import { pageTransition } from '../../animations/variants';
 import { Compass } from 'lucide-react';
 import './Gallery.css';
+
+const GALLERY_IMAGES = [
+  {
+    src: '/hero_key_visual.png',
+    alt: 'Spike Showdown Hero Showcase',
+  },
+  {
+    src: '/roster_key_visual.png',
+    alt: 'Roster Registration Showcase',
+  },
+  {
+    src: '/trophy_key_visual.png',
+    alt: 'Championship Trophy Showcase',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=800&auto=format&fit=crop',
+    alt: 'Esports Tournament Arena',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=800&auto=format&fit=crop',
+    alt: 'Pro Gaming Controller',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=800&auto=format&fit=crop',
+    alt: 'Gaming Screen Closeup',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1560253023-3ec5d502959f?q=80&w=800&auto=format&fit=crop',
+    alt: 'Mechanical Keyboard RGB',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1538481199705-c710c4e965fc?q=80&w=800&auto=format&fit=crop',
+    alt: 'Ultimate Gaming Rig',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=800&auto=format&fit=crop',
+    alt: 'Esports Gaming Room',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1627856013091-fed6e4e30025?q=80&w=800&auto=format&fit=crop',
+    alt: 'Esports Headset & Audio',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop',
+    alt: 'Pro Team Brainstorming',
+  },
+];
 
 export default function Gallery() {
   return (

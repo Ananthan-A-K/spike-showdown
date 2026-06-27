@@ -2,15 +2,73 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, Clock, Zap, Flag, MapPin } from 'lucide-react';
 import { PageHeader } from '../About/About';
-import { SCHEDULE } from '../../constants/data';
 import { pageTransition, containerVariants, itemVariants } from '../../animations/variants';
 import './Schedule.css';
 
+const SCHEDULE = [
+  {
+    date: 'July 1, 2025',
+    time: '12:00 IST',
+    event: 'Registration Opens',
+    type: 'milestone',
+    desc: 'Team registration portal goes live. Submit your roster now.',
+  },
+  {
+    date: 'July 15, 2025',
+    time: '23:59 IST',
+    event: 'Registration Deadline',
+    type: 'deadline',
+    desc: 'Last date to register your team. No late entries accepted.',
+  },
+  {
+    date: 'July 18, 2025',
+    time: '18:00 IST',
+    event: 'Team Draw & Seeding',
+    type: 'milestone',
+    desc: 'Official bracket draw and group seeding announcement on Discord.',
+  },
+  {
+    date: 'July 20, 2025',
+    time: '10:00 IST',
+    event: 'Group Stage Begins',
+    type: 'match',
+    desc: 'Round-robin matches start. All teams play across 3 rounds.',
+  },
+  {
+    date: 'August 5, 2025',
+    time: '20:00 IST',
+    event: 'Group Stage Ends',
+    type: 'match',
+    desc: 'Final group stage matches. Top 8 teams advance to playoffs.',
+  },
+  {
+    date: 'August 10, 2025',
+    time: '10:00 IST',
+    event: 'Playoff Stage',
+    type: 'match',
+    desc: 'Single-elimination bracket begins. Quarter-finals day.',
+  },
+  {
+    date: 'August 12, 2025',
+    time: '14:00 IST',
+    event: 'Semi-Finals',
+    type: 'match',
+    desc: 'Top 4 battle for a spot in the grand final.',
+  },
+  {
+    date: 'August 15, 2025',
+    time: '12:00 IST',
+    event: 'Grand Final - LAN',
+    type: 'final',
+    desc: 'Best of 5. One team will be crowned SPIKE SHOWDOWN Season 1 Champions.',
+  },
+];
+
 const TYPE_CONFIG = {
-  milestone: { icon: Zap,      color: 'var(--color-blue)',    classPrefix: 'milestone', label: 'Milestone' },
-  deadline:  { icon: Flag,     color: 'var(--color-accent)',  classPrefix: 'deadline',  label: 'Deadline' },
-  match:     { icon: Calendar, color: 'var(--color-success)', classPrefix: 'match',     label: 'Match Day' },
-  final:     { icon: Clock,    color: 'var(--color-warning)', classPrefix: 'final',     label: 'Grand Final' },
+  milestone: { icon: Zap,      color: 'var(--color-blue)',    bg: 'rgba(79,124,172,0.1)',  classPrefix: 'milestone', label: 'Milestone' },
+  deadline:  { icon: Flag,     color: 'var(--color-accent)',  bg: 'rgba(230,57,70,0.1)',   classPrefix: 'deadline',  label: 'Deadline' },
+  match:     { icon: Calendar, color: 'var(--color-success)', bg: 'rgba(34,197,94,0.1)',   classPrefix: 'match',     label: 'Match Day' },
+  final:     { icon: Clock,    color: 'var(--color-warning)', bg: 'rgba(245,158,11,0.1)',  classPrefix: 'final',     label: 'Grand Final' },
 };
 
 const FILTERS = ['All', 'Milestone', 'Deadline', 'Match Day', 'Grand Final'];
@@ -84,13 +142,13 @@ export default function Schedule() {
                     <motion.div
                       whileHover={{ scale: 1.01, y: -2 }}
                       transition={{ duration: 0.2 }}
-                      className="schedule-card"
+                      className="schedule-page-card"
                     >
                       {/* Type badge */}
                       <div className="flex items-center gap-2" style={{ marginBottom: '0.75rem' }}>
                         <span
                           className="font-mono text-[0.5rem] uppercase tracking-widest px-2 py-0.5 rounded"
-                          style={{ color: cfg.color, background: `${cfg.color}15` }}
+                          style={{ color: cfg.color, background: cfg.bg }}
                         >
                           {cfg.label}
                         </span>
@@ -104,7 +162,7 @@ export default function Schedule() {
                       </p>
 
                       {/* Date & time */}
-                      <div className="schedule-meta">
+                      <div className="schedule-page-meta">
                         <div className="flex items-center gap-1.5">
                           <Calendar size={11} className="text-[#7D8793]" />
                           <span className="font-mono text-[0.575rem] uppercase tracking-wider text-[#7D8793]">{event.date}</span>

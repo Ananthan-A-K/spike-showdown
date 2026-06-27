@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useCountdown } from '../../../hooks';
-import { TOURNAMENT } from '../../../constants/data';
 import './CountdownTimer.css';
 
 function Digit({ value, label }) {
@@ -33,8 +32,8 @@ function Digit({ value, label }) {
   );
 }
 
-export default function CountdownTimer({ targetDate, className = '' }) {
-  const target   = targetDate || TOURNAMENT.startDate;
+export default function CountdownTimer({ targetDate = new Date('2025-08-15T10:00:00'), className = '' }) {
+  const target   = targetDate;
   const timeLeft = useCountdown(target);
 
   if (timeLeft.total <= 0) {
@@ -53,6 +52,8 @@ export default function CountdownTimer({ targetDate, className = '' }) {
       <Digit value={timeLeft.days}    label="Days" />
       <span className="countdown-colon">:</span>
       <Digit value={timeLeft.hours}   label="Hours" />
+      <span className="countdown-colon">:</span>
+      <Digit value={timeLeft.minutes} label="Mins" />
       <span className="countdown-colon">:</span>
       <Digit value={timeLeft.seconds} label="Secs" />
     </div>

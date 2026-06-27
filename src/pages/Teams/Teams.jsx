@@ -3,9 +3,89 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Search, X } from 'lucide-react';
 import { PageHeader } from '../About/About';
 import TeamCard from '../../components/ui/TeamCard/TeamCard';
-import { TEAMS } from '../../constants/data';
 import { pageTransition } from '../../animations/variants';
 import './Teams.css';
+
+const TEAMS = [
+  {
+    id: 1,
+    name: 'PHANTOM UNIT',
+    tag: 'PHU',
+    captain: 'Arjun Mehta',
+    college: 'IIT Bombay',
+    players: ['Arjun Mehta', 'Priya Sharma', 'Dev Kapoor', 'Ananya Roy', 'Kiran Patel'],
+    rank: 1,
+    wins: 0,
+    losses: 0,
+    status: 'Confirmed',
+    color: '#E63946',
+  },
+  {
+    id: 2,
+    name: 'VOID STRIKE',
+    tag: 'VSK',
+    captain: 'Rohan Das',
+    college: 'NIT Trichy',
+    players: ['Rohan Das', 'Meera Iyer', 'Aditya Kumar', 'Sneha Gupta', 'Raj Singh'],
+    rank: 2,
+    wins: 0,
+    losses: 0,
+    status: 'Confirmed',
+    color: '#4F7CAC',
+  },
+  {
+    id: 3,
+    name: 'ECHO FORCE',
+    tag: 'ECF',
+    captain: 'Vikram Reddy',
+    college: 'BITS Pilani',
+    players: ['Vikram Reddy', 'Tanvi Nair', 'Shiva Kumar', 'Riya Joshi', 'Aryan Malhotra'],
+    rank: 3,
+    wins: 0,
+    losses: 0,
+    status: 'Confirmed',
+    color: '#22C55E',
+  },
+  {
+    id: 4,
+    name: 'STEEL SENTINELS',
+    tag: 'SSN',
+    captain: 'Pooja Verma',
+    college: 'VIT Vellore',
+    players: ['Pooja Verma', 'Harsh Tiwari', 'Nikhil Rao', 'Divya Menon', 'Sanjay Pillai'],
+    rank: 4,
+    wins: 0,
+    losses: 0,
+    status: 'Confirmed',
+    color: '#F59E0B',
+  },
+  {
+    id: 5,
+    name: 'NOVA GUARD',
+    tag: 'NVG',
+    captain: 'Ishaan Chatterjee',
+    college: 'SRM University',
+    players: ['Ishaan Chatterjee', 'Kavya Pillai', 'Abhishek Singh', 'Ria Banerjee', 'Vivek Nair'],
+    rank: 5,
+    wins: 0,
+    losses: 0,
+    status: 'Confirmed',
+    color: '#8B5CF6',
+  },
+  {
+    id: 6,
+    name: 'IRON VEIL',
+    tag: 'IRV',
+    captain: 'Chirag Bhatia',
+    college: 'Manipal University',
+    players: ['Chirag Bhatia', 'Swati Menon', 'Rohit Aggarwal', 'Nisha Pillai', 'Suresh Kumar'],
+    rank: 6,
+    wins: 0,
+    losses: 0,
+    status: 'Confirmed',
+    color: '#06B6D4',
+  },
+];
 
 export default function Teams() {
   const [search, setSearch]       = useState('');

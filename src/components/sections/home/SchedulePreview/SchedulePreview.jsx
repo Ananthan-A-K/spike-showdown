@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Calendar, Clock, Zap, Flag } from 'lucide-react';
 import SectionHeading from '../../../ui/SectionHeading/SectionHeading';
-import { SCHEDULE } from '../../../../constants/data';
 import { containerVariants, itemVariants } from '../../../../animations/variants';
 import './SchedulePreview.css';
 
@@ -14,9 +13,9 @@ const TYPE_CONFIG = {
   final:     { icon: Clock,    color: '#F59E0B', bg: 'rgba(245,158,11,0.1)',   border: 'rgba(245,158,11,0.2)' },
 };
 
-const PREVIEW_EVENTS = SCHEDULE.slice(0, 4);
+export default function SchedulePreview({ schedule }) {
+  const previewEvents = schedule.slice(0, 4);
 
-export default function SchedulePreview() {
   return (
     <section className="section-pad schedule-preview-section">
       <div className="container-xl">
@@ -48,7 +47,7 @@ export default function SchedulePreview() {
           <div className="schedule-timeline-line" />
 
           <div className="schedule-events">
-            {PREVIEW_EVENTS.map((event, i) => {
+            {previewEvents.map((event, i) => {
               const cfg = TYPE_CONFIG[event.type] || TYPE_CONFIG.milestone;
               const Icon = cfg.icon;
               const isRight = i % 2 === 1;
@@ -70,21 +69,21 @@ export default function SchedulePreview() {
                   </div>
 
                   {/* Content card */}
-                  <div className="schedule-card-wrapper">
-                    <div className="schedule-card">
-                      <div className="schedule-card-meta">
-                        <span className="schedule-card-date" style={{ color: cfg.color }}>
+                  <div className="schedule-preview-card-wrapper">
+                    <div className="schedule-preview-card">
+                      <div className="schedule-preview-card-meta">
+                        <span className="schedule-preview-card-date" style={{ color: cfg.color }}>
                           {event.date}
                         </span>
-                        <span className="schedule-card-sep">·</span>
-                        <span className="schedule-card-time">
+                        <span className="schedule-preview-card-sep">·</span>
+                        <span className="schedule-preview-card-time">
                           {event.time}
                         </span>
                       </div>
-                      <h3 className="schedule-card-title">
+                      <h3 className="schedule-preview-card-title">
                         {event.event}
                       </h3>
-                      <p className="schedule-card-desc">
+                      <p className="schedule-preview-card-desc">
                         {event.desc}
                       </p>
                     </div>
@@ -98,7 +97,7 @@ export default function SchedulePreview() {
         {/* More indicator */}
         <div className="mt-12 text-center">
           <Link to="/schedule" className="schedule-more-link">
-            View {SCHEDULE.length - 4} more events
+            View {schedule.length - 4} more events
             <ArrowRight size={12} />
           </Link>
         </div>
