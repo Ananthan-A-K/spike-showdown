@@ -102,7 +102,7 @@ export default function PrizePool({ prizes, totalPrizePool }) {
                   </div>
 
                   {/* Perks */}
-                  <ul className="prize-perks-list">
+                  {/* <ul className="prize-perks-list">
                     {prize.perks.map((perk) => (
                       <li key={perk} className="prize-perk-item">
                         <div className="prize-perk-icon" style={{ background: `${cfg.color}18` }}>
@@ -111,7 +111,7 @@ export default function PrizePool({ prizes, totalPrizePool }) {
                         <span className="prize-perk-text">{perk}</span>
                       </li>
                     ))}
-                  </ul>
+                  </ul> */}
                 </div>
               </motion.div>
             );
@@ -127,10 +127,10 @@ export default function PrizePool({ prizes, totalPrizePool }) {
           className="text-center mt-20"
         >
           <Link to="/register" className="btn btn-primary flex items-center gap-2" style={{ display: 'inline-flex', padding: '0 2.5rem' }}>
-            Register For Free
+            Register Now
             <ArrowRight size={15} />
           </Link>
-          <p className="prize-cta-note">No entry fee. Open to all college students.</p>
+          <p className="prize-cta-note">Open to all players.</p>
         </motion.div>
 
       </div>

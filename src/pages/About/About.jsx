@@ -1,17 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Target, Eye, Users, Shield, Zap } from 'lucide-react';
+import { ArrowRight, ChevronDown, Target, Eye, Users, Shield, Zap } from 'lucide-react';
 import SectionHeading from '../../components/ui/SectionHeading/SectionHeading';
 import { pageTransition, containerVariants, itemVariants, fadeLeft, fadeRight } from '../../animations/variants';
 import './About.css';
 
 const TIMELINE_ITEMS = [
-  { year: 'Nov 2024', title: 'Idea Born', desc: 'The vision of a premier collegiate Valorant tournament takes shape.' },
-  { year: 'Jan 2025', title: 'Core Team Formed', desc: 'Organizing committee assembled. Planning and ruleset drafting begins.' },
-  { year: 'Mar 2025', title: 'Platform Built', desc: 'Official website, registration system, and Discord server launched.' },
-  { year: 'Jul 2025', title: 'Registration Opens', desc: 'Teams from across India register for the inaugural season.' },
-  { year: 'Aug 2025', title: 'Season 1 Kicks Off', desc: 'The first ever SPIKE SHOWDOWN championship begins. History is made.' },
+  { year: 'June 2026', title: 'The Idea', desc: 'The vision for SPIKE SHOWDOWN was born—to create a professionally organized collegiate Valorant tournament by IEEE Student Branch SBCE.' },
+  { year: 'June 2026', title: 'Committee Formation', desc: 'The organizing committee was assembled, with dedicated teams for tournament operations, technical management, media, finance, and participant support.' },
+  { year: 'Late June 2026', title: 'Planning & Development', desc: 'Tournament rules, branding, website development, Discord server, registration system, and event structure were finalized.' },
+  { year: 'July 1, 2026', title: 'Official Announcement', desc: 'SPIKE SHOWDOWN – Season 1 was officially unveiled, introducing the tournament to the community.' },
+  { year: 'July 3, 2026', title: 'Registration Opens', desc: 'Team registrations officially begin through the online registration portal.' },
+  { year: 'July 2026', title: 'Building the Competition', desc: 'Tournament details, rulebook, prizes, team verification, and bracket announcements are released throughout the month.' },
+  { year: 'After the Valorant World Cup', title: 'Tournament Begins', desc: 'Bracket A and Bracket B commence, with teams competing through knockout rounds to reach the Champions Stage.' },
+  { year: 'Season Finale', title: 'Grand Final', desc: 'The champions of Bracket A and Bracket B compete to become the first SPIKE SHOWDOWN Season 1 Champion.' },
+  { year: 'Legacy Begins', title: 'A New Tradition', desc: 'Season 1 marks the beginning of SPIKE SHOWDOWN, laying the foundation for future collegiate Valorant tournaments organized by IEEE Student Branch SBCE.' },
 ];
 
 const VALUES = [
@@ -47,6 +51,9 @@ function PageHeader({ eyebrow, title, subtitle }) {
 export { PageHeader };
 
 export default function About() {
+  const [isTimelineExpanded, setIsTimelineExpanded] = useState(false);
+  const visibleTimelineItems = isTimelineExpanded ? TIMELINE_ITEMS : TIMELINE_ITEMS.slice(0, 4);
+
   return (
     <motion.div
       key="about"
@@ -200,9 +207,11 @@ export default function About() {
             variants={containerVariants}
             className="flex flex-col gap-0"
           >
-            {TIMELINE_ITEMS.map((item, i) => (
+            {visibleTimelineItems.map((item, i) => (
               <motion.div
-                key={i}
+                key={`${item.year}-${item.title}`}
+                initial="hidden"
+                animate="visible"
                 variants={itemVariants}
                 className="timeline-item"
               >
@@ -211,7 +220,7 @@ export default function About() {
                   <div className="timeline-dot">
                     <div className="timeline-dot-inner" />
                   </div>
-                  {i < TIMELINE_ITEMS.length - 1 && (
+                  {i < visibleTimelineItems.length - 1 && (
                     <div className="timeline-line" />
                   )}
                 </div>
@@ -225,6 +234,21 @@ export default function About() {
               </motion.div>
             ))}
           </motion.div>
+
+          <div className="timeline-expand-wrap">
+            <button
+              type="button"
+              className="timeline-expand-btn"
+              onClick={() => setIsTimelineExpanded((current) => !current)}
+              aria-expanded={isTimelineExpanded}
+              aria-label={isTimelineExpanded ? 'Collapse timeline' : 'Expand timeline'}
+            >
+              <ChevronDown
+                size={18}
+                className={`timeline-expand-icon ${isTimelineExpanded ? 'timeline-expand-icon-open' : ''}`}
+              />
+            </button>
+          </div>
         </div>
       </section>
 

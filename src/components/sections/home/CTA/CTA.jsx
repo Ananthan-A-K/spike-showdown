@@ -67,7 +67,7 @@ export default function CTA({ indicators = [] }) {
               className="cta-sub"
             >
               Assemble your team, submit your roster, and fight for the title.
-              No entry fee. Open to all college students across India.
+              Open to all across India.
             </motion.p>
 
             {/* Actions */}

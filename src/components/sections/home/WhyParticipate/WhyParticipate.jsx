@@ -1,40 +1,40 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Users, Zap, Globe, Star, Shield, TrendingUp } from 'lucide-react';
+import { Award, Globe, ShieldCheck, TrendingUp, Trophy, Users } from 'lucide-react';
 import SectionHeading from '../../../ui/SectionHeading/SectionHeading';
 import { containerVariants, itemVariants } from '../../../../animations/variants';
 import './WhyParticipate.css';
 
 const WHY_ITEMS = [
   {
-    icon: Zap,
+    icon: Trophy,
     title: 'Elite Competition',
-    desc: 'Face the top collegiate Valorant players in India. Sharpen your skills against the best.',
+    desc: 'Challenge skilled collegiate Valorant teams from across Kerala in a professionally organized tournament.',
   },
   {
     icon: Users,
-    title: 'Build Your Team',
-    desc: 'Compete with your squad. Build chemistry, coordination, and championship-level synergy.',
+    title: 'Teamwork & Strategy',
+    desc: 'Coordinate with your squad, adapt under pressure, and showcase teamwork in every match.',
   },
   {
-    icon: Globe,
-    title: 'National Recognition',
-    desc: 'Winners receive social spotlights, certificates, and documented recognition in the community.',
+    icon: Award,
+    title: 'Recognition',
+    desc: 'Compete for championship glory, certificates, MVP recognition, and tournament honors.',
   },
   {
     icon: TrendingUp,
-    title: 'Grow as a Player',
-    desc: 'Experience competitive tournament play and grow under high-pressure match conditions.',
+    title: 'Skill Development',
+    desc: 'Strengthen your communication, game sense, teamwork, and competitive decision-making.',
   },
   {
-    icon: Shield,
-    title: 'Fair Play Guarantee',
-    desc: 'Anti-cheat verification, dedicated referees, and professional match oversight for every game.',
+    icon: ShieldCheck,
+    title: 'Fair Competition',
+    desc: 'Verified teams, dedicated tournament admins, clear rules, and strict fair play standards ensure a balanced competitive experience.',
   },
   {
-    icon: Star,
-    title: 'Prize & Prestige',
-    desc: '₹50,000 in prizes and the honor of being named SPIKE SHOWDOWN Season 1 Champions.',
+    icon: Globe,
+    title: 'Esports Community',
+    desc: "Connect with fellow Valorant players, represent your college, and become part of Kerala's growing esports community.",
   },
 ];
 
@@ -51,7 +51,7 @@ export default function WhyParticipate() {
           <SectionHeading
             eyebrow="Why Participate"
             title={<>More than a<br />tournament</>}
-            subtitle="SPIKE SHOWDOWN is a platform for growth, recognition, and competitive excellence."
+            subtitle="SPIKE SHOWDOWN is a competitive collegiate Valorant tournament organized by IEEE Student Branch SBCE, bringing together players across Kerala to compete, improve, and earn recognition."
             align="center"
           />
         </div>

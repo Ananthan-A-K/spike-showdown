@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { MessageSquare, Instagram, Mail, Twitter, Youtube, ArrowUpRight } from 'lucide-react';
+import { MessageSquare, Instagram, Mail, ArrowUpRight } from 'lucide-react';
 import './Footer.css';
 
 const NAV_LINKS = [
@@ -15,56 +15,48 @@ const NAV_LINKS = [
   { label: 'Contact', path: '/contact' },
 ];
 
-const EVENT_INFO = {
-  date: 'August 2025',
-  prizePool: '₹50,000',
-};
+const DISCORD_LINK = 'https://discord.gg/XXXXXXXX';
+
+const TOURNAMENT_INFO = [
+  { label: 'Tournament', value: 'SPIKE SHOWDOWN – Season 1' },
+  { label: 'Organizer', value: 'IEEE Student Branch SBCE' },
+  { label: 'Game', value: 'Valorant' },
+  { label: 'Mode', value: 'Online' },
+  { label: 'Platform', value: 'PC' },
+  { label: 'Region', value: 'Kerala' },
+  { label: 'Registration', value: 'Online' },
+];
 
 const SOCIALS = [
-  { icon: MessageSquare, label: 'Discord',   href: 'https://discord.gg' },
-  { icon: Instagram,     label: 'Instagram', href: 'https://instagram.com' },
-  { icon: Twitter,       label: 'Twitter',   href: 'https://twitter.com' },
-  { icon: Youtube,       label: 'YouTube',   href: 'https://youtube.com' },
-  { icon: Mail,          label: 'Email',     href: 'mailto:contact@spikeshowdown.gg' },
+  { icon: MessageSquare, label: 'Discord',   href: DISCORD_LINK },
+  { icon: Instagram,     label: 'Instagram', href: 'https://instagram.com/ieeesbsbce' },
+  { icon: Mail,          label: 'Email',     href: 'mailto:ieeesbsbce@gmail.com' },
 ];
 
 const LEGAL_LINKS = [
-  { label: 'Privacy Policy',  href: '#' },
-  { label: 'Terms of Play',   href: '#' },
-  { label: 'Code of Conduct', href: '#' },
+  { label: 'Privacy Policy',     href: '#' },
+  { label: 'Terms & Conditions', href: '#' },
+  { label: 'Code of Conduct',    href: '#' },
 ];
 
 export default function Footer() {
-  const year = new Date().getFullYear();
-
   return (
     <footer className="site-footer">
       <div className="container-xl">
 
-        {/* ── Top Grid ── */}
+        {/* Top Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 footer-top-grid">
 
           {/* Brand Column */}
           <div className="lg:col-span-5 flex flex-col gap-6 footer-brand-col">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 navbar-logo w-fit">
-              <div className="navbar-logo-icon">
-                <div className="navbar-logo-bg" />
-                <svg viewBox="0 0 32 32" className="w-full h-full p-1.5" fill="none">
-                  <polygon points="16,3 29,10 29,22 16,29 3,22 3,10" fill="none" stroke="#E63946" strokeWidth="1.5" />
-                  <polygon points="16,9 23,13 23,19 16,23 9,19 9,13" fill="#E63946" fillOpacity="0.15" stroke="#E63946" strokeWidth="1" />
-                  <rect x="14" y="13" width="4" height="6" rx="1" fill="#E63946" />
-                </svg>
-              </div>
-              <div className="leading-none">
-                <span className="navbar-logo-text block">SPIKE SHOWDOWN</span>
-                <span className="navbar-logo-sub block">Season 1</span>
-              </div>
+              <img src="/logo.png" alt="SPIKE SHOWDOWN Season 1" className="navbar-logo-image" />
             </Link>
 
             <p className="footer-brand-text">
-              The premier collegiate Valorant championship. Compete with the best.
-              Prove your worth. Become a champion.
+              SPIKE SHOWDOWN – Season 1 is the flagship online collegiate Valorant tournament organized by IEEE Student Branch SBCE.
+              Bringing together talented teams across Kerala to compete, connect, and create unforgettable esports moments.
             </p>
 
             {/* Socials */}
@@ -88,18 +80,18 @@ export default function Footer() {
             {/* Discord CTA box */}
             <div className="footer-discord-box flex items-center justify-between gap-4">
               <div>
-                <p className="footer-discord-title">Join the Server</p>
-                <p className="footer-discord-subtitle">Stay updated on Discord</p>
+                <p className="footer-discord-title">Join Our Community</p>
+                <p className="footer-discord-subtitle">Stay updated with tournament announcements, match schedules, brackets, and exclusive event updates.</p>
               </div>
               <motion.a
-                href="https://discord.gg"
+                href={DISCORD_LINK}
                 target="_blank"
                 rel="noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="footer-discord-btn"
               >
-                Join <ArrowUpRight size={11} />
+                Join Discord <ArrowUpRight size={11} />
               </motion.a>
             </div>
           </div>
@@ -125,34 +117,22 @@ export default function Footer() {
 
           {/* Info Column */}
           <div className="lg:col-span-3 flex flex-col gap-5">
-            <h4 className="footer-heading">Event Info</h4>
+            <h4 className="footer-heading">Tournament Information</h4>
             <div className="flex flex-col gap-3">
-              <div>
-                <p className="footer-info-item-label">Date</p>
-                <p className="footer-info-item-val">{EVENT_INFO.date}</p>
-              </div>
-              <div>
-                <p className="footer-info-item-label">Prize Pool</p>
-                <p className="footer-info-item-val">{EVENT_INFO.prizePool}</p>
-              </div>
-              <div>
-                <p className="footer-info-item-label">Format</p>
-                <p className="footer-info-item-val">Online + LAN Finals</p>
-              </div>
-              <div>
-                <p className="footer-info-item-label">Contact</p>
-                <a href="mailto:contact@spikeshowdown.gg" className="footer-info-item-link">
-                  contact@spikeshowdown.gg
-                </a>
-              </div>
+              {TOURNAMENT_INFO.map((item) => (
+                <div key={item.label}>
+                  <p className="footer-info-item-label">{item.label}</p>
+                  <p className="footer-info-item-val">{item.value}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
 
-        {/* ── Bottom Bar ── */}
+        {/* Bottom Bar */}
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 footer-bottom">
           <p className="footer-bottom-text">
-            © {year} Spike Showdown. All rights reserved.
+            © 2026 IEEE Student Branch SBCE. All Rights Reserved.
           </p>
 
           <div className="flex items-center gap-6">
@@ -164,7 +144,7 @@ export default function Footer() {
           </div>
 
           <p className="footer-signature">
-            Built with precision
+            Designed & Developed by IEEE SB SBCE
           </p>
         </div>
 

@@ -63,23 +63,7 @@ export default function Navbar() {
 
             {/* ── Logo ── */}
             <Link to="/" className="flex items-center gap-3 navbar-logo">
-              <div className="navbar-logo-icon">
-                <div className="navbar-logo-bg" />
-                <svg viewBox="0 0 32 32" className="w-full h-full p-1.5" fill="none">
-                  <polygon points="16,3 29,10 29,22 16,29 3,22 3,10" fill="none" stroke="#E63946" strokeWidth="1.5" />
-                  <polygon points="16,9 23,13 23,19 16,23 9,19 9,13" fill="#E63946" fillOpacity="0.15" stroke="#E63946" strokeWidth="1" />
-                  <rect x="14" y="13" width="4" height="6" rx="1" fill="#E63946" />
-                </svg>
-              </div>
-
-              <div className="leading-none">
-                <span className="navbar-logo-text block">
-                  SPIKE SHOWDOWN
-                </span>
-                <span className="navbar-logo-sub block">
-                  Season 1
-                </span>
-              </div>
+              <img src="/logo.png" alt="SPIKE SHOWDOWN Season 1" className="navbar-logo-image" />
             </Link>
 
             {/* ── Desktop Links ── */}

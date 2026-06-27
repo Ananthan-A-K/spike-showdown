@@ -226,9 +226,9 @@ export default function Hero({ tournament }) {
               className="hero-meta"
             >
               {[
-                { label: '16 Teams', sub: 'Maximum' },
-                { label: '₹50K', sub: 'Prize Pool' },
-                { label: 'Aug 2025', sub: 'Finals' },
+                { label: '24 Teams', sub: 'Maximum' },
+                { label: '5K', sub: 'Prize Pool' },
+                { label: 'July 2025', sub: 'Finals' },
               ].map(({ label, sub }) => (
                 <div key={label} className="flex flex-col">
                   <span className="hero-meta-label">{label}</span>

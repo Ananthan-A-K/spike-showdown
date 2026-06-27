@@ -37,6 +37,15 @@
   min-width: 0;
 }
 
+.navbar-logo-image {
+  width: 4rem;
+  height: 4rem;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+  border-radius: 9999px;
+}
+
 .navbar-logo-icon {
   width: 2rem;
   height: 2rem;
@@ -206,6 +215,11 @@
 
   .navbar-logo {
     gap: 0.625rem;
+  }
+
+  .navbar-logo-image {
+    width: 3.25rem;
+    height: 3.25rem;
   }
 
   .navbar-logo-icon {
