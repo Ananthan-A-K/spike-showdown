@@ -9,9 +9,11 @@ import './Rules.css';
 
 const CATEGORY_ICONS = {
   eligibility: BookOpen,
-  format: Scale,
-  conduct: ShieldAlert,
-  scheduling: Award,
+  'tournament-format': Scale,
+  'maps-match-rules': ShieldAlert,
+  'fair-play': ShieldAlert,
+  'match-policies': Award,
+  'communication-administration': BookOpen,
 };
 
 export default function Rules() {
@@ -25,56 +27,90 @@ export default function Rules() {
       <PageHeader
         eyebrow="Rules & Regulations"
         title="Official Rulebook"
-        subtitle="Please review the rules, format guidelines, and player code of conduct for SPIKE SHOWDOWN Season 1."
+        subtitle="Please review the eligibility, format, map, fair play, match policy, and administration rules for SPIKE SHOWDOWN Season 1."
       />
 
       <section className="section-pad">
         <div className="container-xl">
-          
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12" style={{ gap: '4rem' }}>
+          <div className="rules-layout">
             {/* Left sidebar info panel */}
-            <div className="lg:col-span-1">
+            <div className="rules-layout-sidebar">
               <div className="rules-sidebar">
                 <div className="rules-notice-box">
                   <span className="rules-notice-eyebrow">Notice</span>
-                  <h3 className="rules-notice-title">Competitive Integrity</h3>
+                  <h3 className="rules-notice-title">Eligibility & Registration</h3>
                   <p className="rules-notice-desc">
-                    By registering for SPIKE SHOWDOWN Season 1, all players agree to comply with the ruleset outlined herein. Violations will result in penalties, including match forfeits or tournament disqualification.
+                    By registering for SPIKE SHOWDOWN Season 1, all players agree to comply with the ruleset outlined herein. Registration is confirmed only after payment verification, and violations may result in penalties, forfeits, or disqualification.
                   </p>
                   <hr style={{ margin: '1rem 0' }} />
                   <div className="rules-bullet-list">
                     <div className="rules-bullet-item">
                       <div className="rules-bullet-dot" />
-                      <span className="rules-bullet-text">Active anti-cheat required</span>
+                      <span className="rules-bullet-text">Players must be residents of Kerala</span>
                     </div>
                     <div className="rules-bullet-item">
                       <div className="rules-bullet-dot" />
-                      <span className="rules-bullet-text">Valid college identity required</span>
+                      <span className="rules-bullet-text">Mixed-college and independent teams are allowed</span>
                     </div>
                     <div className="rules-bullet-item">
                       <div className="rules-bullet-dot" />
-                      <span className="rules-bullet-text">Official Discord presence mandatory</span>
+                      <span className="rules-bullet-text">Registration is confirmed only after payment verification</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="rules-help-box">
-                  <h3 className="rules-notice-title" style={{ fontSize: '0.875rem', marginBottom: '0.75rem' }}>Need Clarification?</h3>
+                <div className="rules-notice-box">
+                  <span className="rules-notice-eyebrow">Policy</span>
+                  <h3 className="rules-notice-title">Organizer Rights</h3>
                   <p className="rules-notice-desc">
-                    If you have questions regarding map vetoes, player substitutions, or scheduling conflicts, reach out to support.
+                    The Tournament Committee reserves the right to modify schedules, update tournament rules, adjust tournament format, resolve disputes, replace maps if Riot updates the competitive pool, and disqualify teams violating tournament policies.
                   </p>
-                  <a
-                    href="/contact"
-                    className="btn btn-outline w-full text-center"
-                  >
-                    Contact Tournament Admin
-                  </a>
+                  <div className="rules-bullet-list">
+                    <div className="rules-bullet-item">
+                      <div className="rules-bullet-dot" />
+                      <span className="rules-bullet-text">Modify schedules and tournament rules</span>
+                    </div>
+                    <div className="rules-bullet-item">
+                      <div className="rules-bullet-dot" />
+                      <span className="rules-bullet-text">Adjust format or map pool when needed</span>
+                    </div>
+                    <div className="rules-bullet-item">
+                      <div className="rules-bullet-dot" />
+                      <span className="rules-bullet-text">All committee decisions are final</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="rules-notice-box">
+                  <span className="rules-notice-eyebrow">Policy</span>
+                  <h3 className="rules-notice-title">Acceptance of Rules</h3>
+                  <p className="rules-notice-desc">
+                    By registering for Spike Showdown - Season 1, every participant confirms that they have read this rulebook, understand all tournament rules, and agree to comply with all decisions made by the Tournament Committee.
+                  </p>
+                  <div className="rules-bullet-list">
+                    <div className="rules-bullet-item">
+                      <div className="rules-bullet-dot" />
+                      <span className="rules-bullet-text">Have read this rulebook</span>
+                    </div>
+                    <div className="rules-bullet-item">
+                      <div className="rules-bullet-dot" />
+                      <span className="rules-bullet-text">Understand all tournament rules</span>
+                    </div>
+                    <div className="rules-bullet-item">
+                      <div className="rules-bullet-dot" />
+                      <span className="rules-bullet-text">Agree to all committee decisions</span>
+                    </div>
+                  </div>
+                  <hr style={{ margin: '1rem 0' }} />
+                  <p className="rules-notice-desc" style={{ marginBottom: 0 }}>
+                    Failure to comply with these rules may result in warnings, forfeits, disqualification, or bans from future IEEE Student Branch SBCE tournaments.
+                  </p>
                 </div>
               </div>
             </div>
 
             {/* Right content: Accordions for rules */}
-            <div className="lg:col-span-2">
+            <div className="rules-layout-content">
               <motion.div
                 initial="hidden"
                 animate="visible"
@@ -98,7 +134,7 @@ export default function Rules() {
                             {cat.category}
                           </h2>
                           <p className="rules-category-section">
-                            Section {cat.id.toUpperCase()}
+                            Section {cat.section || cat.id.toUpperCase()}
                           </p>
                         </div>
                       </div>
