@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import Hero from '../../components/sections/home/Hero/Hero';
 import Statistics from '../../components/sections/home/Statistics/Statistics';
 import SchedulePreview from '../../components/sections/home/SchedulePreview/SchedulePreview';
-import FeaturedTeams from '../../components/sections/home/FeaturedTeams/FeaturedTeams';
+import PostersShowcase from '../../components/sections/home/PostersShowcase/PostersShowcase';
 import PrizePool from '../../components/sections/home/PrizePool/PrizePool';
 import WhyParticipate from '../../components/sections/home/WhyParticipate/WhyParticipate';
 import CTA from '../../components/sections/home/CTA/CTA';
@@ -137,48 +137,6 @@ const HOME_SCHEDULE = [
   },
 ];
 
-const HOME_TEAMS = [
-  {
-    id: 1,
-    name: 'PHANTOM UNIT',
-    tag: 'PHU',
-    captain: 'Arjun Mehta',
-    college: 'IIT Bombay',
-    players: ['Arjun Mehta', 'Priya Sharma', 'Dev Kapoor', 'Ananya Roy', 'Kiran Patel'],
-    rank: 1,
-    wins: 0,
-    losses: 0,
-    status: 'Confirmed',
-    color: '#E63946',
-  },
-  {
-    id: 2,
-    name: 'VOID STRIKE',
-    tag: 'VSK',
-    captain: 'Rohan Das',
-    college: 'NIT Trichy',
-    players: ['Rohan Das', 'Meera Iyer', 'Aditya Kumar', 'Sneha Gupta', 'Raj Singh'],
-    rank: 2,
-    wins: 0,
-    losses: 0,
-    status: 'Confirmed',
-    color: '#4F7CAC',
-  },
-  {
-    id: 3,
-    name: 'ECHO FORCE',
-    tag: 'ECF',
-    captain: 'Vikram Reddy',
-    college: 'BITS Pilani',
-    players: ['Vikram Reddy', 'Tanvi Nair', 'Shiva Kumar', 'Riya Joshi', 'Aryan Malhotra'],
-    rank: 3,
-    wins: 0,
-    losses: 0,
-    status: 'Confirmed',
-    color: '#22C55E',
-  },
-];
-
 const HOME_PRIZES = [
   {
     place: 1,
@@ -214,7 +172,7 @@ export default function Home() {
       <Hero tournament={HOME_TOURNAMENT} />
       <Statistics stats={HOME_TOURNAMENT.stats} />
       <SchedulePreview schedule={HOME_SCHEDULE} />
-      <FeaturedTeams teams={HOME_TEAMS} />
+      <PostersShowcase />
       <PrizePool prizes={HOME_PRIZES} totalPrizePool="₹5000" />
       <WhyParticipate />
       <CTA indicators={HOME_TOURNAMENT.ctaIndicators} />

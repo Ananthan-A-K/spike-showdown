@@ -1,0 +1,182 @@
+/* ===================================================
+   Posters & Media Showcase Section Specific Styles
+   =================================================== */
+
+.posters-showcase-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2.5rem;
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .posters-showcase-header {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+}
+
+.posters-carousel-list {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  height: 400px; /* Fits standard mobile portrait poster aspect ratios */
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .posters-carousel-list {
+    height: 600px;
+    gap: 1.5%;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.posters-carousel-item {
+  position: relative;
+  cursor: pointer;
+  height: 100%;
+  flex: 1;
+  min-width: 12px;
+  max-width: 60px;
+  /* Transition flex and max-width for smooth container accordion animation */
+  transition: flex var(--transition, 300ms ease-in), max-width var(--transition, 300ms ease-in), transform 500ms ease-in-out;
+}
+
+.posters-carousel-item[aria-current="true"] {
+  flex: 0 0 240px; /* Fits small viewports (e.g. 360px wide screens) */
+  max-width: 240px;
+}
+
+@media (min-width: 380px) {
+  .posters-carousel-item[aria-current="true"] {
+    flex: 0 0 280px; /* Fits standard mobile viewports */
+    max-width: 280px;
+  }
+}
+
+@media (min-width: 768px) {
+  .posters-carousel-item {
+    min-width: 80px;
+    max-width: 120px;
+  }
+
+  .posters-carousel-item[aria-current="true"] {
+    flex: 0 0 425px; /* Locked to standard 1:1.41 portrait aspect ratio */
+    max-width: 425px;
+  }
+}
+
+.poster-card-inner {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 1rem;
+  background-color: #000;
+  border: 1px solid var(--color-border-subtle);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  transition: transform 500ms ease-in-out, border-color 500ms ease-in-out;
+  transform: translate3d(0, 0, 0);
+}
+
+.posters-carousel-item:hover .poster-card-inner {
+  transform: scale(1.02);
+  border-color: var(--color-accent);
+}
+
+.poster-card-img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  width: auto;
+  min-width: 100%;
+  max-width: none;
+  transform: translate(-50%, -50%) scale(1);
+  object-fit: cover;
+  transition: all 600ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  filter: grayscale(100%) brightness(0.5);
+}
+
+.posters-carousel-item[aria-current="true"] .poster-card-img {
+  filter: grayscale(0%) brightness(0.85);
+  transform: translate(-50%, -50%) scale(1.03);
+}
+
+/* Gradient overlay */
+.poster-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15, 17, 21, 0.95) 0%, rgba(15, 17, 21, 0.3) 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity 500ms ease-in-out;
+  pointer-events: none;
+}
+
+.posters-carousel-item[aria-current="true"] .poster-card-overlay {
+  opacity: 1;
+}
+
+/* Content container */
+.poster-card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.25rem;
+  color: var(--color-text-primary);
+  transition: transform 700ms cubic-bezier(0.22, 0.61, 0.36, 1), opacity 700ms ease-in-out;
+  transform: translateY(2rem);
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .poster-card-content {
+    padding: 2.5rem;
+  }
+}
+
+.posters-carousel-item[aria-current="true"] .poster-card-content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.poster-card-title {
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-accent);
+  margin-bottom: 0.25rem;
+}
+
+@media (min-width: 768px) {
+  .poster-card-title {
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.poster-card-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.9);
+  font-family: var(--font-display);
+  color: var(--color-text-primary);
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .poster-card-name {
+    font-size: 2.25rem;
+    line-height: 1.1;
+  }
+}
