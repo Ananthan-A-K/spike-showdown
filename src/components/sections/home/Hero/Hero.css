@@ -203,11 +203,12 @@
 
 .hero-event-countdown {
   position: absolute;
-  top: 18%;
-  left: 20%;
+  bottom: 1rem;
+  left: 50%;
   z-index: 25;
-  transform: translateX(-50%);
+  translate: -50% 0;
   width: min(74%, 390px);
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -547,23 +548,47 @@
   }
   .hero-artwork-stage {
     min-height: 21rem;
+    width: 100%;
   }
   .hero-artwork-container {
+    width: min(100%, 25rem);
     height: 21rem;
+    margin-inline: auto;
   }
   .hero-event-countdown {
     left: 50%;
-    top: 12%;
+    top: auto;
+    bottom: 2.2rem;
+    width: min(calc(100% - 2rem), 21.5rem);
+    gap: 0.65rem;
+  }
+  .hero-event-countdown-timer {
+    gap: 0.12rem;
   }
   .hero-event-countdown .countdown-card {
     min-width: 0;
-    padding: 0.7rem 0.45rem 0.65rem;
+    padding: 0.7rem 0.32rem 0.65rem;
+  }
+  .hero-event-countdown .countdown-digit-value {
+    font-size: clamp(1.45rem, 8vw, 2rem);
   }
   .hero-event-countdown .countdown-label {
-    font-size: 0.42rem;
+    font-size: 0.4rem;
+    letter-spacing: 0.12em;
   }
   .hero-event-countdown .countdown-colon {
     margin-bottom: 1.55rem;
+    font-size: clamp(1rem, 5vw, 1.5rem);
+  }
+  .hero-outer-ring,
+  .hero-inner-polygon {
+    translate: 0 -2.15rem;
+  }
+  .hero-spike-crystal {
+    translate: 0 -2.35rem;
+  }
+  .hero-spike-glow {
+    bottom: 5.5rem;
   }
   .hero-scroll-indicator {
     display: none;
