@@ -15,7 +15,7 @@ const NAV_LINKS = [
   { label: 'Contact', path: '/contact' },
 ];
 
-const DISCORD_LINK = 'https://discord.gg/XXXXXXXX';
+const DISCORD_LINK = 'https://discord.gg/Hjar3Xgu7M';
 
 const TOURNAMENT_INFO = [
   { label: 'Tournament', value: 'SPIKE SHOWDOWN – Season 1' },
