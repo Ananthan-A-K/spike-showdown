@@ -17,7 +17,7 @@ const HOME_TOURNAMENT = {
   stats: [
     { value: '24', label: 'Teams', suffix: '' },
     { value: '168', label: 'Players', suffix: '+' },
-    { value: '5K', label: 'Prize Pool', suffix: '₹' },
+    { value: '5K', label: 'Prize Pool', suffix: 'K' },
     { value: '3', label: 'Knockout → Champions Stage', suffix: '' },
   ],
 };
