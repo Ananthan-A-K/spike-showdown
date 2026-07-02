@@ -26,6 +26,7 @@ const RULES = [
       { q: 'What is the tournament format?', a: 'The tournament consists of 24 teams divided into Bracket A (12 teams) and Bracket B (12 teams). Both brackets follow a single elimination format. The final three teams from each bracket advance to the Champions Stage, where they compete in a round robin league. The winner of each bracket qualifies for the Grand Final.' },
       { q: 'What is the Champions Stage?', a: 'The last three teams in each bracket play against one another once. Each team plays 2 matches. The team with the highest points advances to the Grand Final.' },
       { q: 'How are ties decided?', a: 'If teams finish with equal points, tie-breakers are applied in this order: Head-to-Head Result, Round Difference, Total Rounds Won, Tournament Committee Decision.' },
+      { q: 'How is third place determined?', a: 'Third place will be decided by a playoff match between the runners-up of Bracket A and Bracket B.' },
       { q: 'What is the Grand Final format?', a: 'The winner of Bracket A faces the winner of Bracket B in a Best of 1 Grand Final.' },
     ],
   },

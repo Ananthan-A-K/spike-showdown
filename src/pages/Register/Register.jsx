@@ -43,7 +43,7 @@ export default function Register() {
 
             <div className="register-link-actions">
               <a
-                href={REGISTRATION_FORM_URL}
+                href={"https://docs.google.com/forms/d/e/1FAIpQLSddh_3-k6yfJLtcc-T0M_yocUCINtE1isSi16ce2XyrEY31Gg/viewform"}
                 target="_blank"
                 rel="noreferrer"
                 className="btn btn-primary register-google-form-btn"
@@ -54,7 +54,9 @@ export default function Register() {
 
               <div className="register-link-note">
                 <Shield size={14} />
-                <span>Use your captain contact details in the form.</span>
+                <span>Use your captain contact details in the form.</span> <b></b>
+                <Shield size={14} />
+                <span>Read the rules carefully before submitting.</span>
               </div>
             </div>
           </motion.div>
