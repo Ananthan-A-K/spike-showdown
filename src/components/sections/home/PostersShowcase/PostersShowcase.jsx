@@ -4,33 +4,35 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import SectionHeading from '../../../ui/SectionHeading/SectionHeading';
 import { containerVariants } from '../../../../animations/variants';
+import regOpen from '../../../../assets/reg-open.jpeg';
+import tesPost from '../../../../assets/tes-post.jpeg';
 import './PostersShowcase.css';
 
 const POSTERS = [
   {
     name: "Season 1 Launch",
     title: "Tournament Teaser",
-    img: "../public/tes-post.jpeg"
+    img: tesPost,
   },
   {
     name: "Assemble Your Squad",
     title: "Registration Live",
-    img: "../public/reg-open.jpeg"
+    img: regOpen,
   },
   {
     name: "Season 1 Launch",
     title: "Tournament Teaser",
-    img: "../public/tes-post.jpeg"
+    img: tesPost,
   },
   {
     name: "Assemble Your Squad",
     title: "Registration Live",
-    img: "../public/reg-open.jpeg"
+    img: regOpen,
   },
   {
     name: "Season 1 Launch",
     title: "Tournament Teaser",
-    img: "../public/tes-post.jpeg"
+    img: tesPost,
   },
 ];
 
