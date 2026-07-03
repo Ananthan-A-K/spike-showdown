@@ -10,28 +10,28 @@ const POSTERS = [
   {
     name: "Season 1 Launch",
     title: "Tournament Teaser",
-    img: "/hero_key_visual.png"
+    img: "../public/tes-post.jpeg"
   },
   {
     name: "Assemble Your Squad",
     title: "Registration Live",
-    img: "/roster_key_visual.png"
+    img: "../public/reg-open.jpeg"
   },
   {
-    name: "₹5,000 Prize Pool",
-    title: "Championship Glory",
-    img: "/trophy_key_visual.png"
+    name: "Season 1 Launch",
+    title: "Tournament Teaser",
+    img: "../public/tes-post.jpeg"
   },
   {
-    name: "Interactive Showcase",
-    title: "Tournament Gallery",
-    img: "https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1200&auto=format&fit=crop"
+    name: "Assemble Your Squad",
+    title: "Registration Live",
+    img: "../public/reg-open.jpeg"
   },
   {
-    name: "Battle For Supremacy",
-    title: "Lobby & Live Stream",
-    img: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?q=80&w=1200&auto=format&fit=crop"
-  }
+    name: "Season 1 Launch",
+    title: "Tournament Teaser",
+    img: "../public/tes-post.jpeg"
+  },
 ];
 
 export default function PostersShowcase() {
