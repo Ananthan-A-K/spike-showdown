@@ -12,7 +12,9 @@ const TIER_CONFIG = {
   bronze: { icon: Award,  color: '#CD7F32', glow: 'rgba(205,127,50,0.10)', border: 'rgba(205,127,50,0.20)' },
 };
 
-export default function PrizePool({ prizes, totalPrizePool }) {
+export default function PrizePool({ prizes, totalPrizePool, isRevealed = true }) {
+  const displayPrizePool = isRevealed ? totalPrizePool : '5000';
+
   return (
     <section className="section-pad prize-section">
 
@@ -23,7 +25,7 @@ export default function PrizePool({ prizes, totalPrizePool }) {
         <div className="text-center mb-20">
           <SectionHeading
             eyebrow="Prize Pool"
-            title={<>Compete for<br /><em className="not-italic" style={{ color: 'var(--color-accent)' }}>{totalPrizePool}</em></>}
+            title={<>Compete for<br /><em className="not-italic" style={{ color: 'var(--color-accent)' }}>{displayPrizePool}</em></>}
             subtitle="The top teams walk away with prizes, recognition, and the title of SPIKE SHOWDOWN Champions."
             align="center"
           />
@@ -40,7 +42,12 @@ export default function PrizePool({ prizes, totalPrizePool }) {
           <div className="prize-pool-callout">
             <div className="w-2 h-2 rounded-full bg-[#E63946] animate-pulse" />
             <span className="prize-pool-label">Total Prize Pool</span>
-            <span className="prize-pool-value">{totalPrizePool}</span>
+            <span className="prize-pool-value">{displayPrizePool}</span>
+            {!isRevealed && (
+              <div className="prize-pool-overlay">
+                <span>Prize pool reveal coming soon</span>
+              </div>
+            )}
           </div>
         </motion.div>
 
@@ -77,6 +84,14 @@ export default function PrizePool({ prizes, totalPrizePool }) {
                   </div>
                 )}
 
+                {!isRevealed && (
+                  <div className="prize-card-cover">
+                    <div className="prize-card-cover-content">
+                      <span>Reveal to see prize</span>
+                    </div>
+                  </div>
+                )}
+
                 <div className="prize-card-body">
                   {/* Icon & place */}
                   <div className="flex items-center gap-3">
@@ -85,7 +100,7 @@ export default function PrizePool({ prizes, totalPrizePool }) {
                     </div>
                     <div>
                       <span className="prize-amount" style={{ color: cfg.color }}>
-                        {prize.amount}
+                        {isRevealed ? prize.amount : '****'}
                       </span>
                       <p className="prize-tier-label">
                         {prize.label}

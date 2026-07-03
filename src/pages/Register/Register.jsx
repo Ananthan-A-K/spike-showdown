@@ -17,7 +17,9 @@ export default function Register() {
       <PageHeader
         eyebrow="Registration"
         title="Register Your Team"
-        subtitle="Team registration is handled through the official Google Form."
+        subtitle="Before registration opens, ensure that you read the official rules and understand the tournament format. Once ready, complete your team registration through the Google Form."
+        
+       
       />
 
       <section className="section-pad">
@@ -28,9 +30,9 @@ export default function Register() {
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="register-link-card"
           >
-            <div className="register-step-icon">
+            {/* <div className="register-step-icon">
               <ClipboardCheck size={22} />
-            </div>
+            </div> */}
 
             <div className="register-link-copy">
               <h2 className="font-display font-bold text-3xl md:text-4xl text-[#F5F7FA] leading-tight">
