@@ -91,7 +91,7 @@ const TEAMS = [
     tag: 'DTX',
     captain: 'ADWAITH',
     // college: 'IIT Bombay',
-    players: ["A4WAITH","JACKENZO","TEXTURE","IEMLAW","PALIMDROME"],
+    players: ["JACKENZO","TEXTURE","IEMLAW","PALIMDROME"],
     rank: 0,
     wins: 0,
     losses: 0,
