@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Hero from '../../components/sections/home/Hero/Hero';
 import Statistics from '../../components/sections/home/Statistics/Statistics';
+import Partnerships from '../../components/sections/home/Partnerships/Partnerships';
 import SchedulePreview from '../../components/sections/home/SchedulePreview/SchedulePreview';
 import PostersShowcase from '../../components/sections/home/PostersShowcase/PostersShowcase';
 import PrizePool from '../../components/sections/home/PrizePool/PrizePool';
@@ -175,6 +176,7 @@ export default function Home() {
       <PostersShowcase />
       <PrizePool prizes={HOME_PRIZES} totalPrizePool="₹5000" isRevealed={true} />
       <WhyParticipate />
+      <Partnerships />
       <CTA indicators={HOME_TOURNAMENT.ctaIndicators} />
     </motion.div>
   );

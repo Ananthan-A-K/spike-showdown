@@ -87,7 +87,7 @@ export default function PostersShowcase() {
         >
           {POSTERS.map((poster, index) => (
             <li
-              key={poster.name}
+              key={`${poster.name}-${index}`}
               onClick={() => setActiveItem(index)}
               aria-current={activeItem === index}
               className="posters-carousel-item"
