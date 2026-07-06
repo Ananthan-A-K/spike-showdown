@@ -23,9 +23,9 @@ const SCHEDULE = [
   {
     date: 'July 6, 2026',
     time: '6:00 PM IST',
-    event: 'Tournament Details',
+    event: 'Prize Pool Reveal',
     type: 'milestone',
-    desc: 'Tournament format, eligibility, registration fees, and event details are published.',
+    desc: 'Cash prizes, certificates, and rewards are officially announced.',
   },
   {
     date: 'July 9, 2026',
@@ -44,9 +44,9 @@ const SCHEDULE = [
   {
     date: 'July 20, 2026',
     time: '6:00 PM IST',
-    event: 'Prize Pool Reveal',
+    event: 'Tournament Details',
     type: 'milestone',
-    desc: 'Cash prizes, certificates, and rewards are officially announced.',
+    desc: 'Tournament format, eligibility, registration fees, and event details are published.',
   },
   {
     date: 'July 22, 2026',

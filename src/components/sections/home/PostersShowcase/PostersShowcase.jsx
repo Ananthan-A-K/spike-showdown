@@ -7,6 +7,7 @@ import { containerVariants } from '../../../../animations/variants';
 import regOpen from '../../../../assets/reg-open.jpeg';
 import tesPost from '../../../../assets/tes-post.jpeg';
 import './PostersShowcase.css';
+import pool from '../../../../assets/p-pool.jpeg'
 
 const POSTERS = [
   {
@@ -20,9 +21,9 @@ const POSTERS = [
     img: regOpen,
   },
   {
-    name: "Season 1 Launch",
-    title: "Tournament Teaser",
-    img: tesPost,
+    name: "grab your slots",
+    title: "Prize Pool Reveal",
+    img: pool,
   },
   {
     name: "Assemble Your Squad",
