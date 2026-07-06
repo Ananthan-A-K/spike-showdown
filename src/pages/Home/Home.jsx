@@ -173,7 +173,7 @@ export default function Home() {
       <Statistics stats={HOME_TOURNAMENT.stats} />
       <SchedulePreview schedule={HOME_SCHEDULE} />
       <PostersShowcase />
-      <PrizePool prizes={HOME_PRIZES} totalPrizePool="₹5000" isRevealed={false} />
+      <PrizePool prizes={HOME_PRIZES} totalPrizePool="₹5000" isRevealed={true} />
       <WhyParticipate />
       <CTA indicators={HOME_TOURNAMENT.ctaIndicators} />
     </motion.div>
