@@ -130,7 +130,7 @@ const TEAMS = [
     tag: 'RG',
     captain: 'spidey',
     // college: 'IIT Bombay',
-    players: ["KΛΣ JAAK","Skibidi","Bucky","Notfps"],
+    players: ["KΛΣ JAAK","SKIBIDI","BUCKY","NOTFPS"],
     rank: 0,
     wins: 0,
     losses: 0,
