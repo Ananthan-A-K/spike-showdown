@@ -261,7 +261,7 @@ export default function Teams() {
                   {24 - TEAMS.length} spots remaining
                 </p>
                 <p className="text-[#7D8793] text-[0.9375rem] font-sans mt-2 leading-relaxed">
-                  Registration closes July 15, 2025
+                  Registration closes July 22, 2026
                 </p>
               </div>
               <a href="/register" className="btn btn-primary flex-shrink-0 px-8" style={{ textDecoration: 'none' }}>
