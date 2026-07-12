@@ -148,7 +148,7 @@ const TEAMS = [
     wins: 0,
     losses: 0,
     status: 'Confirmed',
-    color: '#c2f700',
+    color: '#f70000',
   },
 ];
 
