@@ -143,7 +143,7 @@ const TEAMS = [
     tag: 'XCTX',
     captain: 'OXYBL1ND',
     // college: 'IIT Bombay',
-    players: ["MAX XCTX","GLADIATOR XCTX","OXYBL1ND XCTX","STILES XCTX","DEMON2"],
+    players: ["MAX XCTX","GLADIATOR XCTX","STILES XCTX","DEMON2"],
     rank: 0,
     wins: 0,
     losses: 0,
