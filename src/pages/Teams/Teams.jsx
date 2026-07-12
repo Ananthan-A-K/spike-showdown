@@ -137,6 +137,19 @@ const TEAMS = [
     status: 'Confirmed',
     color: '#c2f700',
   },
+  {
+    id: 9,
+    name: 'XCENTRIX',
+    tag: 'XCTX',
+    captain: 'OXYBL1ND',
+    // college: 'IIT Bombay',
+    players: ["MAX XCTX","GLADIATOR XCTX","OXYBL1ND XCTX","STILES XCTX","DEMON2"],
+    rank: 0,
+    wins: 0,
+    losses: 0,
+    status: 'Confirmed',
+    color: '#c2f700',
+  },
 ];
 
 export default function Teams() {
