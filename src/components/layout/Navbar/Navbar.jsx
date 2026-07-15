@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronRight } from 'lucide-react';
 import { useScrollPosition } from '../../../hooks';
+import ieeeLogo from '../../../assets/ieee-logo.png';
 import './Navbar.css';
 
 const NAV_LINKS = [
@@ -64,6 +65,8 @@ export default function Navbar() {
             {/* ── Logo ── */}
             <Link to="/" className="flex items-center gap-3 navbar-logo">
               <img src="/logo.png" alt="SPIKE SHOWDOWN Season 1" className="navbar-logo-image" />
+              <div className="navbar-logo-divider" />
+              <img src={ieeeLogo} alt="IEEE SB SBCE" className="navbar-ieee-logo" />
             </Link>
 
             {/* ── Desktop Links ── */}
