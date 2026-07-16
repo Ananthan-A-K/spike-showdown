@@ -163,6 +163,20 @@ const TEAMS = [
     status: 'Confirmed',
     color: '#00f798',
   },
+  {
+    id: 12,
+    name: 'QUEEN',
+    tag: 'WSQ',
+    captain: 'F4ZZAE',
+    // college: 'IIT Bombay',
+    players: ["RAYID MOHAMMED AFSAL","OMAR IQUBAL","FEBY MOHAN","MUHAMMAED ANWAR","GEORGE ANTO"],
+    rank: 0,
+    wins: 0,
+    losses: 0,
+    status: 'Confirmed',
+    color: '#eb00f7',
+  },
+  
 ];
 
 export default function Teams() {
