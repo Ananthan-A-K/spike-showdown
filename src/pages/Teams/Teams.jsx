@@ -182,12 +182,12 @@ const TEAMS = [
     tag: '4DX',
     captain: 'JITHU',
     // college: 'IIT Bombay',
-    players: ["SKYPER","JITHU","VEERAPPAN","ABCDABCD","KNAVE"],
+    players: ["SKYPER","VEERAPPAN","ABCDABCD","KNAVE"],
     rank: 0,
     wins: 0,
     losses: 0,
     status: 'Confirmed',
-    color: '#00f798',
+    color: '#3600f7',
   },
 ];
 
