@@ -101,7 +101,7 @@ const TEAMS = [
   {
     id: 7,
     name: '4DX- B',
-    tag: '4DX',
+    tag: '4DXB',
     captain: 'AK',
     // college: 'IIT Bombay',
     players: ["DIGAMBARAN","CRIMSON AGK","ABHISHEK","VEERAPPAN","TROY"],
@@ -176,7 +176,19 @@ const TEAMS = [
     status: 'Confirmed',
     color: '#eb00f7',
   },
-  
+  {
+    id: 13,
+    name: '4DX',
+    tag: '4DX',
+    captain: 'JITHU',
+    // college: 'IIT Bombay',
+    players: ["SKYPER","JITHU","VEERAPPAN","ABCDABCD","KNAVE"],
+    rank: 0,
+    wins: 0,
+    losses: 0,
+    status: 'Confirmed',
+    color: '#00f798',
+  },
 ];
 
 export default function Teams() {
