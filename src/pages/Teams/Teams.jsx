@@ -189,6 +189,19 @@ const TEAMS = [
     status: 'Confirmed',
     color: '#3600f7',
   },
+  {
+    id: 14,
+    name: 'KIDILOSKI RONIN',
+    tag: 'KDK',
+    captain: 'Gaurav P S',
+    // college: 'IIT Bombay',
+    players: ["RUINED","GABIMARU","ZYREN","RISKY","ZINOX","NXXXN","NEPHEWTACO"],
+    rank: 0,
+    wins: 0,
+    losses: 0,
+    status: 'Confirmed',
+    color: '#00e3f7',
+  },
 ];
 
 export default function Teams() {
