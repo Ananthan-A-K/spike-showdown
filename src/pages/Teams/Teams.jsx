@@ -166,7 +166,7 @@ const TEAMS = [
   {
     id: 12,
     name: 'QUEEN',
-    tag: 'WSQ',
+    tag: 'Q3N',
     captain: 'F4ZZAE',
     // college: 'IIT Bombay',
     players: ["RAYID MOHAMMED AFSAL","OMAR IQUBAL","FEBY MOHAN","MUHAMMAED ANWAR","GEORGE ANTO"],
