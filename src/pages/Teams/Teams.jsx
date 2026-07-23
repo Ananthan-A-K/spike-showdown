@@ -241,6 +241,32 @@ const TEAMS = [
     status: 'Confirmed',
     color: '#98f700',
   },
+  {
+    id: 18,
+    name: 'ERROR 404',
+    tag: 'E404',
+    captain: 'KRIXZ',
+    // college: 'IIT Bombay',
+    players: ["NEERAJ","ARJUN","SACHIN","EDWIN"],
+    rank: 0,
+    wins: 0,
+    losses: 0,
+    status: 'Confirmed',
+    color: '#8000f7',
+  },
+  {
+    id: 19,
+    name: 'Legion',
+    tag: 'LGN',
+    captain: 'ALWIN B VARGHESE',
+    // college: 'IIT Bombay',
+    players: ["NIKHIL S GEORGE","GODWIN T SAMUEL","ABHIRAM S","AMRITHNATH S"],
+    rank: 0,
+    wins: 0,
+    losses: 0,
+    status: 'Confirmed',
+    color: '#f71d00',
+  },
 ];
 
 export default function Teams() {
