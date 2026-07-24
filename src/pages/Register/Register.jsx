@@ -44,15 +44,7 @@ export default function Register() {
             </div>
 
             <div className="register-link-actions">
-              <a
-                href={"https://docs.google.com/forms/d/e/1FAIpQLSddh_3-k6yfJLtcc-T0M_yocUCINtE1isSi16ce2XyrEY31Gg/viewform"}
-                target="_blank"
-                rel="noreferrer"
-                className="btn btn-primary register-google-form-btn"
-              >
-                Open Google Form
-                <ArrowUpRight size={15} />
-              </a>
+             Registration Closed
 
               <div className="register-link-note">
                 <Shield size={14} />
