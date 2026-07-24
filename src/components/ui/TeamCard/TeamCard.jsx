@@ -53,9 +53,6 @@ export default function TeamCard({ team, index = 0 }) {
         <h3 className="team-title">
           {team.name}
         </h3>
-        <p className="team-college">
-          {team.college}
-        </p>
       </div>
 
       {/* Captain */}
