@@ -287,15 +287,18 @@ export default function Brackets() {
                       <h4>HOW IT WORKS</h4>
                     </div>
                     <div className="works-content">
-                      <div className="works-icon-circle">
-                        <Users size={28} className="text-[#E63946]" />
-                      </div>
-                      <p className="works-text">
-                        All 5 teams play each other once in a Single Round-Robin league stage.
-                      </p>
-                      <div className="works-alert-box">
-                        <AlertCircle size={14} className="text-[#E63946] flex-shrink-0" />
-                        <span>The team with the least match wins is eliminated (5th Place).</span>
+                      <ul className="works-list">
+                        <li>5 qualified teams</li>
+                        <li>Each team plays ONLY 2 matches</li>
+                        <li>Total League Matches: 5</li>
+                      </ul>
+
+                      <div className="works-after-section">
+                        <span className="works-after-title">After all matches:</span>
+                        <div className="works-after-items">
+                          <span className="works-qualify">Top 4 &rarr; Playoffs</span>
+                          <span className="works-eliminate">5th Place &rarr; Eliminated</span>
+                        </div>
                       </div>
                     </div>
                   </div>
