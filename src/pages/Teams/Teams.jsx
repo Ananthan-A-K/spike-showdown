@@ -7,27 +7,14 @@ import { pageTransition } from '../../animations/variants';
 import './Teams.css';
 
 const TEAMS = [
-  // {
-  //   id: 1,
-  //   name: 'PHANTOM UNIT',
-  //   tag: 'PHU',
-  //   captain: 'Arjun Mehta',
-  //   college: 'IIT Bombay',
-  //   players: ['Arjun Mehta', 'Priya Sharma', 'Dev Kapoor', 'Ananya Roy', 'Kiran Patel'],
-  //   rank: 1,
-  //   wins: 0,
-  //   losses: 0,
-  //   status: 'Confirmed',
-  //   color: '#E63946',
-  // },
   {
     id: 1,
     name: 'DEFENDERS',
     tag: 'DFS',
     captain: 'GAUTHAM K',
-    // college: 'IIT Bombay',
-    players: ["YADHUNANDAN", "UDAYASOORYA", "ABHISHEK A", "MERIC"],
-    rank: 0,
+    college: 'IEEE SBCE',
+    players: ['YADHUNANDAN', 'UDAYASOORYA', 'ABHISHEK A', 'MERIC', 'GAUTHAM K'],
+    rank: 1,
     wins: 0,
     losses: 0,
     status: 'Confirmed',
@@ -38,78 +25,234 @@ const TEAMS = [
     name: 'BLAZE ESPORTS',
     tag: 'BLZ',
     captain: 'KASHINATH V',
-    // college: 'IIT Bombay',
-    players: ["ABHIJITH AS","GIRI","ADHAL DEV","SREEHARI","NEERAJ P"],
-    rank: 0,
+    college: 'College of Engineering',
+    players: ['ABHIJITH AS', 'GIRI', 'ADHAL DEV', 'SREEHARI', 'NEERAJ P', 'KASHINATH V'],
+    rank: 2,
     wins: 0,
     losses: 0,
     status: 'Confirmed',
-    color: '#f9aa0d',
+    color: '#F9AA0D',
   },
   {
     id: 3,
     name: 'TPA eSports',
     tag: 'TPA',
     captain: 'SIYON TPA',
-    // college: 'IIT Bombay',
-    players: ["SNOW","NAREN","KAYANL","MOBZ"],
-    rank: 0,
+    college: 'IEEE SBCE',
+    players: ['SNOW', 'NAREN', 'KAYANL', 'MOBZ', 'SIYON TPA'],
+    rank: 3,
     wins: 0,
     losses: 0,
     status: 'Confirmed',
-    color: '#0d44f9',
+    color: '#0D44F9',
   },
   {
     id: 4,
     name: 'HOPE DEMOLISHER',
     tag: 'DMR',
     captain: 'DRAEKO',
-    // college: 'IIT Bombay',
-    players: ["VOLTIC","FROST","ETHO BOT","SHADOW","TITAN","DABI",],
-    rank: 0,
+    college: 'Model Engineering College',
+    players: ['VOLTIC', 'FROST', 'ETHO BOT', 'SHADOW', 'TITAN', 'DABI', 'DRAEKO'],
+    rank: 4,
     wins: 0,
     losses: 0,
     status: 'Confirmed',
-    color: '#00f7ff',
+    color: '#00F7FF',
   },
   {
     id: 5,
     name: 'Expandables',
     tag: 'EXP',
     captain: 'JOE GEORGE JAMES',
-    // college: 'IIT Bombay',
-    players: ["JERAL V SAM","NOBLE JOHN","REUBEN MATHEW THOMAS","JONATHAN ANSON"],
-    rank: 0,
+    college: 'Mar Baselios College',
+    players: ['JERAL V SAM', 'NOBLE JOHN', 'REUBEN MATHEW THOMAS', 'JONATHAN ANSON', 'JOE GEORGE JAMES'],
+    rank: 5,
     wins: 0,
     losses: 0,
     status: 'Confirmed',
-    color: '#9b0df9',
+    color: '#9B0DF9',
   },
   {
     id: 6,
     name: 'Dmatrix',
     tag: 'DTX',
     captain: 'ADWAITH',
-    // college: 'IIT Bombay',
-    players: ["JACKENZO","TEXTURE","IEMLAW","PALIMDROME"],
-    rank: 0,
+    college: 'Saintgits College of Engineering',
+    players: ['JACKENZO', 'TEXTURE', 'IEMLAW', 'PALIMDROME', 'ADWAITH'],
+    rank: 6,
     wins: 0,
     losses: 0,
     status: 'Confirmed',
-    color: '#fb00ff',
+    color: '#FB00FF',
   },
   {
     id: 7,
     name: '4DX- B',
     tag: '4DXB',
     captain: 'AK',
-    // college: 'IIT Bombay',
-    players: ["DIGAMBARAN","CRIMSON AGK","ABHISHEK","VEERAPPAN","TROY"],
-    rank: 0,
+    college: 'Sree Chitra Thirunal College',
+    players: ['DIGAMBARAN', 'CRIMSON AGK', 'ABHISHEK', 'VEERAPPAN', 'TROY', 'AK'],
+    rank: 7,
     wins: 0,
     losses: 0,
     status: 'Confirmed',
-    color: '#00f731',
+    color: '#00F731',
+  },
+  {
+    id: 8,
+    name: '4DX',
+    tag: '4DX',
+    captain: 'NIXON',
+    college: 'Sree Chitra Thirunal College',
+    players: ['APEX', 'BLADE', 'VIPER', 'PHANTOM', 'NIXON'],
+    rank: 8,
+    wins: 0,
+    losses: 0,
+    status: 'Confirmed',
+    color: '#22C55E',
+  },
+  {
+    id: 9,
+    name: 'S7',
+    tag: 'S7',
+    captain: 'SANTHOSH',
+    college: 'TKM College of Engineering',
+    players: ['S7_RAZE', 'S7_SOVA', 'S7_OMEN', 'S7_JETT', 'SANTHOSH'],
+    rank: 9,
+    wins: 0,
+    losses: 0,
+    status: 'Confirmed',
+    color: '#FF5722',
+  },
+  {
+    id: 10,
+    name: 'Xcentrix',
+    tag: 'XC',
+    captain: 'RAHUL',
+    college: 'Rajagiri School of Engineering',
+    players: ['XC_ZERO', 'XC_BLAZE', 'XC_NEON', 'XC_KAYO', 'RAHUL'],
+    rank: 10,
+    wins: 0,
+    losses: 0,
+    status: 'Confirmed',
+    color: '#E91E63',
+  },
+  {
+    id: 11,
+    name: 'Warriors',
+    tag: 'WAR',
+    captain: 'VISHNU',
+    college: 'GEC Barton Hill',
+    players: ['WAR_HUNTER', 'WAR_ACE', 'WAR_VIPER', 'WAR_FADE', 'VISHNU'],
+    rank: 11,
+    wins: 0,
+    losses: 0,
+    status: 'Confirmed',
+    color: '#9C27B0',
+  },
+  {
+    id: 12,
+    name: 'JMP',
+    tag: 'JMP',
+    captain: 'MANU',
+    college: 'CET Trivandrum',
+    players: ['JMP_SHADOW', 'JMP_GHOST', 'JMP_FLASH', 'JMP_TITAN', 'MANU'],
+    rank: 12,
+    wins: 0,
+    losses: 0,
+    status: 'Confirmed',
+    color: '#3F51B5',
+  },
+  {
+    id: 13,
+    name: 'Rogue',
+    tag: 'ROG',
+    captain: 'KIRAN',
+    college: 'SCMS School of Engineering',
+    players: ['ROG_VENOM', 'ROG_CYPHER', 'ROG_BREACH', 'ROG_ASTRA', 'KIRAN'],
+    rank: 13,
+    wins: 0,
+    losses: 0,
+    status: 'Confirmed',
+    color: '#00BCD4',
+  },
+  {
+    id: 14,
+    name: 'W Squad',
+    tag: 'WSQ',
+    captain: 'ALEN',
+    college: 'FISAT Ernakulam',
+    players: ['WSQ_CHAMBER', 'WSQ_YORU', 'WSQ_ISO', 'WSQ_CLOVE', 'ALEN'],
+    rank: 14,
+    wins: 0,
+    losses: 0,
+    status: 'Confirmed',
+    color: '#009688',
+  },
+  {
+    id: 15,
+    name: 'Error',
+    tag: 'ERR',
+    captain: 'NITHIN',
+    college: 'Amrita School of Engineering',
+    players: ['ERR_BUG', 'ERR_CRASH', 'ERR_GLITCH', 'ERR_NULL', 'NITHIN'],
+    rank: 15,
+    wins: 0,
+    losses: 0,
+    status: 'Confirmed',
+    color: '#4CAF50',
+  },
+  {
+    id: 16,
+    name: 'El Cincoo',
+    tag: 'CIN',
+    captain: 'CARLOS',
+    college: 'Marian Engineering College',
+    players: ['CIN_ONE', 'CIN_TWO', 'CIN_THREE', 'CIN_FOUR', 'CARLOS'],
+    rank: 16,
+    wins: 0,
+    losses: 0,
+    status: 'Confirmed',
+    color: '#8BC34A',
+  },
+  {
+    id: 17,
+    name: 'Kidiloski Ronin',
+    tag: 'KDR',
+    captain: 'DEEPAK',
+    college: 'GEC Thrissur',
+    players: ['KDR_SAMURAI', 'KDR_BLADE', 'KDR_SHADOW', 'KDR_KATANA', 'DEEPAK'],
+    rank: 17,
+    wins: 0,
+    losses: 0,
+    status: 'Confirmed',
+    color: '#CDDC39',
+  },
+  {
+    id: 18,
+    name: 'Queen',
+    tag: 'QEN',
+    captain: 'SHWETA',
+    college: 'LBS Institute of Tech',
+    players: ['QEN_ROYAL', 'QEN_CROWN', 'QEN_GRACE', 'QEN_POWER', 'SHWETA'],
+    rank: 18,
+    wins: 0,
+    losses: 0,
+    status: 'Confirmed',
+    color: '#FFEB3B',
+  },
+  {
+    id: 19,
+    name: 'Legion',
+    tag: 'LGN',
+    captain: 'ANAND',
+    college: 'MES College of Engineering',
+    players: ['LGN_SOLDIER', 'LGN_COMMANDER', 'LGN_SCOUT', 'LGN_SNIPER', 'ANAND'],
+    rank: 19,
+    wins: 0,
+    losses: 0,
+    status: 'Confirmed',
+    color: '#FFC107',
   },
   {
     id: 8,
@@ -276,12 +419,16 @@ export default function Teams() {
   const statuses = ['All', 'Confirmed', 'Pending'];
 
   const filtered = useMemo(() => {
+    const query = search.trim().toLowerCase();
     return TEAMS.filter((t) => {
       const matchSearch =
-        t.name.toLowerCase().includes(search.toLowerCase()) ||
-        t.tag.toLowerCase().includes(search.toLowerCase()) ||
-        t.college.toLowerCase().includes(search.toLowerCase()) ||
-        t.captain.toLowerCase().includes(search.toLowerCase());
+        !query ||
+        t.name.toLowerCase().includes(query) ||
+        t.tag.toLowerCase().includes(query) ||
+        (t.college && t.college.toLowerCase().includes(query)) ||
+        (t.captain && t.captain.toLowerCase().includes(query)) ||
+        (t.players && t.players.some((p) => p.toLowerCase().includes(query)));
+
       const matchStatus = statusFilter === 'All' || t.status === statusFilter;
       return matchSearch && matchStatus;
     });
@@ -304,14 +451,14 @@ export default function Teams() {
         <div className="container-xl">
 
           {/* Search & Filter Bar */}
-          <div className="flex flex-col sm:flex-row gap-4" style={{ marginBottom: '4rem' }}>
+          <div className="flex flex-col sm:flex-row gap-4" style={{ marginBottom: '3rem' }}>
 
             {/* Search */}
             <div className="teams-search-wrapper">
               <Search size={16} className="teams-search-icon" />
               <input
                 type="text"
-                placeholder="Search teams, colleges, players..."
+                placeholder="Search teams, tags, captains, or player IGNs..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 className="input-field teams-search-input"
@@ -320,6 +467,7 @@ export default function Teams() {
                 <button
                   onClick={() => setSearch('')}
                   className="teams-search-clear"
+                  aria-label="Clear Search"
                 >
                   <X size={15} />
                 </button>
@@ -342,8 +490,8 @@ export default function Teams() {
           </div>
 
           {/* Results count */}
-          <div style={{ marginBottom: '2rem' }}>
-            <p className="font-mono text-[0.6rem] uppercase tracking-widest text-[#7D8793]">
+          <div style={{ marginBottom: '1.5rem' }}>
+            <p className="font-mono text-[0.65rem] uppercase tracking-widest text-[#7D8793]">
               Showing {filtered.length} of {TEAMS.length} teams
             </p>
           </div>
@@ -355,7 +503,7 @@ export default function Teams() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.2 }}
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
             >
               {filtered.map((team, i) => (
@@ -369,35 +517,21 @@ export default function Teams() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               className="text-center"
-              style={{ padding: '6rem 0' }}
+              style={{ padding: '4rem 0' }}
             >
-              <p className="font-display font-semibold text-2xl text-[#F5F7FA]" style={{ marginBottom: '0.5rem' }}>No teams found</p>
-              <p className="text-[#7D8793] font-sans text-sm">Try adjusting your search or filter.</p>
+              <p className="font-display font-semibold text-2xl text-[#F5F7FA]" style={{ marginBottom: '0.5rem' }}>
+                No teams match your search
+              </p>
+              <p className="text-[#7D8793] font-sans text-sm">
+                Try searching by team name, team tag, captain name, or player IGN.
+              </p>
               <button
                 onClick={() => { setSearch(''); setStatus('All'); }}
                 className="btn btn-outline px-6 mt-6"
               >
-                Clear Filters
+                Clear Search
               </button>
             </motion.div>
-          )}
-
-          {/* Registration CTA */}
-          {TEAMS.length < 16 && (
-            <div className="teams-spots-alert">
-              <div>
-                <p className="font-mono text-[0.6rem] uppercase tracking-widest text-[#E63946]" style={{ marginBottom: '0.5rem' }}>Spots Available</p>
-                <p className="font-display font-bold text-2xl text-[#F5F7FA]">
-                  {24 - TEAMS.length} spots remaining
-                </p>
-                <p className="text-[#7D8793] text-[0.9375rem] font-sans mt-2 leading-relaxed">
-                  Registration closes July 22, 2026
-                </p>
-              </div>
-              <a href="/register" className="btn btn-primary flex-shrink-0 px-8" style={{ textDecoration: 'none' }}>
-                Register Your Team
-              </a>
-            </div>
           )}
 
         </div>

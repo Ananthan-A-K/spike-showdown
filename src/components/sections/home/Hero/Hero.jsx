@@ -57,7 +57,6 @@ function EventCountdownArtwork({ targetDate }) {
         className="relative z-10"
       >
         <svg viewBox="0 0 200 280" fill="none" className="hero-spike-crystal">
-          {/* Spike body */}
           <defs>
             <linearGradient id="spikeGrad" x1="100" y1="0" x2="100" y2="280" gradientUnits="userSpaceOnUse">
               <stop offset="0%" stopColor="#E63946" stopOpacity="0.9" />
@@ -229,9 +228,9 @@ export default function Hero({ tournament }) {
               className="hero-meta"
             >
               {[
-                { label: '24 Teams', sub: 'Maximum' },
+                { label: '19 Teams', sub: 'Tournament' },
                 { label: '5K', sub: 'Prize Pool' },
-                { label: 'July 2025', sub: 'Finals' },
+                { label: 'July 2026', sub: 'Finals' },
               ].map(({ label, sub }) => (
                 <div key={label} className="flex flex-col">
                   <span className="hero-meta-label">{label}</span>

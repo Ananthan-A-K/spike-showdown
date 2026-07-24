@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { MessageSquare, Instagram, Mail, ArrowUpRight } from 'lucide-react';
+import { MessageSquare, Instagram, Mail, ArrowUpRight, Lock } from 'lucide-react';
 import './Footer.css';
 
 const NAV_LINKS = [
@@ -10,6 +10,7 @@ const NAV_LINKS = [
   { label: 'Schedule', path: '/schedule' },
   { label: 'Teams', path: '/teams' },
   { label: 'Brackets', path: '/brackets' },
+  { label: 'Admin Portal', path: '/admin' },
   { label: 'Rules', path: '/rules' },
   { label: 'Gallery', path: '/gallery' },
   { label: 'Contact', path: '/contact' },
@@ -141,6 +142,10 @@ export default function Footer() {
                 {l.label}
               </a>
             ))}
+            <Link to="/admin" className="footer-legal-link inline-flex items-center gap-1 text-[#E63946]">
+              <Lock size={12} />
+              Admin Portal
+            </Link>
           </div>
 
           <p className="footer-signature">

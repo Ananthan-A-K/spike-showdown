@@ -13,8 +13,8 @@ const TIMELINE_ITEMS = [
   { year: 'July 1, 2026', title: 'Official Announcement', desc: 'SPIKE SHOWDOWN – Season 1 was officially unveiled, introducing the tournament to the community.' },
   { year: 'July 3, 2026', title: 'Registration Opens', desc: 'Team registrations officially begin through the online registration portal.' },
   { year: 'July 2026', title: 'Building the Competition', desc: 'Tournament details, rulebook, prizes, team verification, and bracket announcements are released throughout the month.' },
-  { year: 'After the Valorant World Cup', title: 'Tournament Begins', desc: 'Bracket A and Bracket B commence, with teams competing through knockout rounds to reach the Champions Stage.' },
-  { year: 'Season Finale', title: 'Grand Final', desc: 'The champions of Bracket A and Bracket B compete to become the first SPIKE SHOWDOWN Season 1 Champion.' },
+  { year: 'After the Valorant World Cup', title: 'Tournament Begins', desc: 'Knockout rounds 1 & 2 begin, leading into the 5-team Round-Robin League Stage.' },
+  { year: 'Season Finale', title: 'Grand Final', desc: 'The top teams compete in Best of 3 Semifinals and Grand Final to crown the SPIKE SHOWDOWN Season 1 Champion.' },
   { year: 'Legacy Begins', title: 'A New Tradition', desc: 'Season 1 marks the beginning of SPIKE SHOWDOWN, laying the foundation for future collegiate Valorant tournaments organized by IEEE Student Branch SBCE.' },
 ];
 
@@ -64,7 +64,7 @@ export default function About() {
       <PageHeader
         eyebrow="About"
         title="The Story Behind Season 1"
-        subtitle="What started as a vision has become the most anticipated collegiate esports tournament of 2025."
+        subtitle="What started as a vision has become the premier 19-team collegiate Valorant championship."
       />
 
       {/* ── Mission & Vision ── */}
@@ -111,19 +111,19 @@ export default function About() {
                 </p>
               </div>
 
-              <div className="about-card-lg">
-                <div className="flex items-center gap-3 mb-4">
+              <div className="about-card">
+                <div className="flex items-center gap-3 mb-3">
                   <Target size={18} className="text-gradient-accent" style={{ background: 'none', WebkitTextFillColor: 'initial', color: 'var(--color-accent)' }} />
                   <span className="about-card-title">Our Goal</span>
                 </div>
                 <p className="about-card-text">
-                  Season 1 sets the foundation. We aim to host 24 elite teams, deliver
+                  Season 1 sets the foundation. We host 19 elite teams, deliver
                   professional match coverage, and award ₹5000 to the best performers.
                 </p>
               </div>
 
-              <div className="about-card-lg">
-                <div className="flex items-center gap-3 mb-4">
+              <div className="about-card">
+                <div className="flex items-center gap-3 mb-3">
                   <Users size={18} className="text-gradient-accent" style={{ background: 'none', WebkitTextFillColor: 'initial', color: 'var(--color-success)' }} />
                   <span className="about-card-title">The Community</span>
                 </div>
@@ -148,8 +148,8 @@ export default function About() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { label: 'Format', value: 'Knockout → Champions Stage', sub: 'Two elimination rounds followed by an elite Round Robin stage.' },
-              { label: 'Teams', value: '24 Teams', sub: '12 Teams per Bracket (A & B)' },
+              { label: 'Format', value: 'Single Elimination → League Stage', sub: 'Knockout rounds, 5-team League Stage, and BO3 Playoffs.' },
+              { label: 'Teams', value: '19 Teams', sub: '1 BYE + 18 Teams in Round 1' },
               { label: 'Platform', value: 'Valorant PC', sub: 'Mumbai server region' },
               { label: 'Season 1 Finals', value: 'Online Event' },
             ].map(({ label, value, sub }) => (

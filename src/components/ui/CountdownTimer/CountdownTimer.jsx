@@ -32,7 +32,7 @@ function Digit({ value, label }) {
   );
 }
 
-export default function CountdownTimer({ targetDate = new Date('2025-08-15T10:00:00'), className = '' }) {
+export default function CountdownTimer({ targetDate = new Date('2026-07-25T20:00:00+05:30'), className = '' }) {
   const target   = targetDate;
   const timeLeft = useCountdown(target);
 

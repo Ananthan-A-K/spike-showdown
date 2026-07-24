@@ -12,14 +12,14 @@ import { pageTransition } from '../../animations/variants';
 import './Home.css';
 
 const HOME_TOURNAMENT = {
-  subtitle: 'The premier collegiate Valorant championship. 24 teams. One champion.',
-  startDate: new Date('2026-07-24T18:00:00+05:30'),
-  ctaIndicators: ['Register Now', '24 Teams Max', '₹5000 Prize Pool'],
+  subtitle: 'The premier collegiate Valorant championship. 19 teams. One champion.',
+  startDate: new Date('2026-07-25T20:00:00+05:30'),
+  ctaIndicators: ['Register Now', '19 Teams', '₹5000 Prize Pool'],
   stats: [
-    { value: '24', label: 'Teams', suffix: '' },
-    { value: '168', label: 'Players', suffix: '+' },
+    { value: '19', label: 'Teams', suffix: '' },
+    { value: '130', label: 'Players', suffix: '+' },
     { value: '5K', label: 'Prize Pool', suffix: 'K' },
-    { value: '3', label: 'Knockout → Champions Stage', suffix: '' },
+    { value: '4', label: 'Stages → Grand Final', suffix: '' },
   ],
 };
 
@@ -99,28 +99,28 @@ const HOME_SCHEDULE = [
     time: 'TBA',
     event: 'Round 1',
     type: 'match',
-    desc: 'The first knockout round begins simultaneously in Bracket A and Bracket B.',
+    desc: 'First knockout round featuring 18 teams in 9 matches, while 1 team receives an automatic BYE.',
   },
   {
     date: 'To Be Announced',
     time: 'TBA',
     event: 'Round 2',
     type: 'match',
-    desc: 'Winning teams advance to the second knockout round.',
+    desc: 'Second knockout round with 10 teams competing for 5 winner spots.',
   },
   {
     date: 'To Be Announced',
     time: 'TBA',
-    event: 'Champions Stage',
+    event: 'Round 3 (League Stage)',
     type: 'match',
-    desc: 'The top three teams from each bracket compete in a Round Robin format to determine the finalists.',
+    desc: 'The 5 remaining teams play a Single Round-Robin league stage. The top 4 teams advance to the Playoffs.',
   },
   {
     date: 'To Be Announced',
     time: 'TBA',
-    event: 'Grand Final',
+    event: 'Playoffs & Grand Final',
     type: 'final',
-    desc: 'Bracket A Champion vs Bracket B Champion. One team will become the first SPIKE SHOWDOWN Season 1 Champion.',
+    desc: 'Best of 3 Qualifier 1, Eliminator, Qualifier 2, and Grand Final to crown the SPIKE SHOWDOWN Season 1 Champion.',
   },
   {
     date: 'Immediately After Grand Final',
