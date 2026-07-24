@@ -96,7 +96,7 @@ export default function AdminBrackets() {
               <div className="admin-input-group">
                 <input
                   type="password"
-                  placeholder="Enter Passcode (Default: spike2026)"
+                  placeholder="Enter Passcode"
                   value={passcode}
                   onChange={(e) => setPasscode(e.target.value)}
                   className={`admin-password-input ${authError ? 'error' : ''}`}
