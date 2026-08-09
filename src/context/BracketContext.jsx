@@ -155,7 +155,7 @@ export function BracketProvider({ children }) {
   const calculateStandings = () => {
     const teamsMap = {};
 
-    // Initialize all teams present across fixtures
+    // Initialize all teams present across fixtures with baseline stats
     bracketState.round3Fixtures.forEach((f) => {
       const t1 = getR3TeamName(f, 1);
       const t2 = getR3TeamName(f, 2);
@@ -164,30 +164,45 @@ export function BracketProvider({ children }) {
     });
 
     bracketState.round3Fixtures.forEach((f) => {
-      if (f.winner) {
-        const t1 = getR3TeamName(f, 1);
-        const t2 = getR3TeamName(f, 2);
+      const t1 = getR3TeamName(f, 1);
+      const t2 = getR3TeamName(f, 2);
 
-        if (!teamsMap[t1]) teamsMap[t1] = { name: t1, played: 0, wins: 0, losses: 0, roundDiff: 0, pts: 0 };
-        if (!teamsMap[t2]) teamsMap[t2] = { name: t2, played: 0, wins: 0, losses: 0, roundDiff: 0, pts: 0 };
+      const hasWinner = Boolean(f.winner);
+      const s1Valid = f.score1 !== null && f.score1 !== '' && f.score1 !== undefined;
+      const s2Valid = f.score2 !== null && f.score2 !== '' && f.score2 !== undefined;
+      const hasScores = s1Valid && s2Valid;
 
-        teamsMap[t1].played += 1;
-        teamsMap[t2].played += 1;
+      if (hasWinner || hasScores) {
+        const s1 = parseInt(f.score1, 10) || 0;
+        const s2 = parseInt(f.score2, 10) || 0;
 
-        const s1 = parseInt(f.score1) || 0;
-        const s2 = parseInt(f.score2) || 0;
+        let matchWinner = f.winner;
+        if (!matchWinner && hasScores && s1 !== s2) {
+          matchWinner = s1 > s2 ? t1 : t2;
+        }
 
-        teamsMap[t1].roundDiff += (s1 - s2);
-        teamsMap[t2].roundDiff += (s2 - s1);
+        if (matchWinner) {
+          if (!teamsMap[t1]) teamsMap[t1] = { name: t1, played: 0, wins: 0, losses: 0, roundDiff: 0, pts: 0 };
+          if (!teamsMap[t2]) teamsMap[t2] = { name: t2, played: 0, wins: 0, losses: 0, roundDiff: 0, pts: 0 };
 
-        if (f.winner === t1) {
-          teamsMap[t1].wins += 1;
-          teamsMap[t1].pts += 3;
-          teamsMap[t2].losses += 1;
-        } else if (f.winner === t2) {
-          teamsMap[t2].wins += 1;
-          teamsMap[t2].pts += 3;
-          teamsMap[t1].losses += 1;
+          teamsMap[t1].played += 1;
+          teamsMap[t2].played += 1;
+
+          teamsMap[t1].roundDiff += (s1 - s2);
+          teamsMap[t2].roundDiff += (s2 - s1);
+
+          const isT1Winner = matchWinner.trim().toLowerCase() === t1.trim().toLowerCase();
+          const isT2Winner = matchWinner.trim().toLowerCase() === t2.trim().toLowerCase();
+
+          if (isT1Winner) {
+            teamsMap[t1].wins += 1;
+            teamsMap[t1].pts += 3;
+            teamsMap[t2].losses += 1;
+          } else if (isT2Winner) {
+            teamsMap[t2].wins += 1;
+            teamsMap[t2].pts += 3;
+            teamsMap[t1].losses += 1;
+          }
         }
       }
     });
@@ -195,7 +210,8 @@ export function BracketProvider({ children }) {
     const sorted = Object.values(teamsMap).sort((a, b) => {
       if (b.pts !== a.pts) return b.pts - a.pts;
       if (b.wins !== a.wins) return b.wins - a.wins;
-      return b.roundDiff - a.roundDiff;
+      if (b.roundDiff !== a.roundDiff) return b.roundDiff - a.roundDiff;
+      return a.name.localeCompare(b.name);
     });
 
     return sorted;
@@ -251,9 +267,30 @@ export function BracketProvider({ children }) {
 
   const updateR3Fixture = (id, score1, score2, winner) => {
     setBracketState((prev) => {
+      const parsedS1 = score1 !== '' && score1 !== null && score1 !== undefined ? (typeof score1 === 'number' ? score1 : parseInt(score1, 10)) : null;
+      const parsedS2 = score2 !== '' && score2 !== null && score2 !== undefined ? (typeof score2 === 'number' ? score2 : parseInt(score2, 10)) : null;
+
       const next = {
         ...prev,
-        round3Fixtures: prev.round3Fixtures.map((f) => (f.id === id ? { ...f, score1, score2, winner } : f)),
+        round3Fixtures: prev.round3Fixtures.map((f) => {
+          if (f.id !== id) return f;
+
+          const t1 = f.team1 || 'Team 1';
+          const t2 = f.team2 || 'Team 2';
+
+          let effectiveWinner = winner !== undefined ? winner : f.winner;
+          if (!effectiveWinner && parsedS1 !== null && parsedS2 !== null && !isNaN(parsedS1) && !isNaN(parsedS2)) {
+            if (parsedS1 > parsedS2) effectiveWinner = t1;
+            else if (parsedS2 > parsedS1) effectiveWinner = t2;
+          }
+
+          return {
+            ...f,
+            score1: parsedS1 !== null && !isNaN(parsedS1) ? parsedS1 : (score1 === '' ? '' : f.score1),
+            score2: parsedS2 !== null && !isNaN(parsedS2) ? parsedS2 : (score2 === '' ? '' : f.score2),
+            winner: effectiveWinner,
+          };
+        }),
       };
       if (isCloudSyncActive) saveBracketToCloud(next).catch(console.error);
       return next;

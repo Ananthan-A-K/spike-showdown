@@ -383,7 +383,21 @@ export default function AdminBrackets() {
                             <span className="admin-match-id">LEAGUE MATCH {f.id}</span>
                             {f.time && <span className="text-[0.65rem] font-mono text-[#F5A623]">{f.time}</span>}
                           </div>
-                          {f.winner && <span className="admin-winner-pill">Winner: {f.winner}</span>}
+                          <div className="flex items-center gap-2">
+                            {f.winner && <span className="admin-winner-pill">Winner: {f.winner}</span>}
+                            {f.winner && (
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  updateR3Fixture(f.id, '', '', null);
+                                  triggerToast(`League Match ${f.id} reset.`);
+                                }}
+                                className="text-[0.65rem] font-mono text-[#7D8793] hover:text-[#E63946] underline transition-colors"
+                              >
+                                Clear
+                              </button>
+                            )}
+                          </div>
                         </div>
 
                         {/* Team 1 */}
@@ -398,8 +412,11 @@ export default function AdminBrackets() {
                             className="admin-score-field"
                           />
                           <button
+                            type="button"
                             onClick={() => {
-                              updateR3Fixture(f.id, f.score1 ?? 13, f.score2 ?? 0, t1Name);
+                              const s1 = (f.score1 !== null && f.score1 !== '' && f.score1 !== undefined) ? f.score1 : 13;
+                              const s2 = (f.score2 !== null && f.score2 !== '' && f.score2 !== undefined) ? f.score2 : 0;
+                              updateR3Fixture(f.id, s1, s2, t1Name);
                               triggerToast(`League Match ${f.id} winner set to ${t1Name}`);
                             }}
                             className={`admin-winner-btn ${f.winner === t1Name ? 'active' : ''}`}
@@ -420,8 +437,11 @@ export default function AdminBrackets() {
                             className="admin-score-field"
                           />
                           <button
+                            type="button"
                             onClick={() => {
-                              updateR3Fixture(f.id, f.score1 ?? 0, f.score2 ?? 13, t2Name);
+                              const s1 = (f.score1 !== null && f.score1 !== '' && f.score1 !== undefined) ? f.score1 : 0;
+                              const s2 = (f.score2 !== null && f.score2 !== '' && f.score2 !== undefined) ? f.score2 : 13;
+                              updateR3Fixture(f.id, s1, s2, t2Name);
                               triggerToast(`League Match ${f.id} winner set to ${t2Name}`);
                             }}
                             className={`admin-winner-btn ${f.winner === t2Name ? 'active' : ''}`}
