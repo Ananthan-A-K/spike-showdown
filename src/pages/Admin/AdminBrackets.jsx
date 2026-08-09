@@ -20,6 +20,7 @@ export default function AdminBrackets() {
 
   const {
     bracketState,
+    isCloudSyncActive,
     getR2TeamName,
     getR3TeamName,
     standings,
@@ -160,12 +161,21 @@ export default function AdminBrackets() {
 
           {/* Admin Toolbar Bar */}
           <div className="admin-toolbar-card">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center flex-wrap gap-3">
               <span className="badge badge-accent flex items-center gap-1.5">
                 <Shield size={12} />
                 ADMIN MODE ACTIVE
               </span>
-              <span className="text-xs font-mono text-[#7D8793]">Playoff Mode</span>
+              {isCloudSyncActive ? (
+                <span className="badge badge-success flex items-center gap-1.5 text-[#22C55E] bg-[#22C55E]/10 border border-[#22C55E]/30 px-2 py-0.5 rounded text-[0.65rem] font-mono">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#22C55E] animate-pulse" />
+                  LIVE CLOUD SYNC ACTIVE
+                </span>
+              ) : (
+                <span className="badge flex items-center gap-1.5 text-[#F5A623] bg-[#F5A623]/10 border border-[#F5A623]/30 px-2 py-0.5 rounded text-[0.65rem] font-mono">
+                  ⚡ LOCAL MODE (Add Firebase keys to .env for multi-device live sync)
+                </span>
+              )}
             </div>
 
             <div className="admin-toolbar-actions">

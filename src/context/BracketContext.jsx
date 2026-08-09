@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
+import { subscribeToBracketUpdates, saveBracketToCloud, isFirebaseConfigured } from '../config/firebase';
 
 const BracketContext = createContext();
 
@@ -85,6 +86,27 @@ export function BracketProvider({ children }) {
     }
   });
 
+  const isCloudSyncActive = isFirebaseConfigured();
+
+  // Subscribe to real-time cloud updates from Firebase Firestore
+  useEffect(() => {
+    if (!isCloudSyncActive) return;
+
+    const unsubscribe = subscribeToBracketUpdates(
+      (cloudData) => {
+        if (cloudData && typeof cloudData === 'object' && cloudData.round1) {
+          setBracketState(cloudData);
+        }
+      },
+      (error) => {
+        console.warn('Firebase sync listener error:', error);
+      }
+    );
+
+    return () => unsubscribe();
+  }, [isCloudSyncActive]);
+
+  // Persist to localStorage whenever bracketState changes
   useEffect(() => {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(bracketState));
@@ -204,57 +226,82 @@ export function BracketProvider({ children }) {
   const championWinner = bracketState.playoffs.grandFinal?.winner || 'CHAMPION';
   const runnerUpName   = bracketState.playoffs.grandFinal?.loser  || 'RUNNER UP';
 
-  // State Mutators
+  // State Mutators (Update local state and sync to Firebase Firestore)
   const updateR1Match = (id, score1, score2, winner) => {
-    setBracketState((prev) => ({
-      ...prev,
-      round1: prev.round1.map((m) => (m.id === id ? { ...m, score1, score2, winner } : m)),
-    }));
+    setBracketState((prev) => {
+      const next = {
+        ...prev,
+        round1: prev.round1.map((m) => (m.id === id ? { ...m, score1, score2, winner } : m)),
+      };
+      if (isCloudSyncActive) saveBracketToCloud(next).catch(console.error);
+      return next;
+    });
   };
 
   const updateR2Match = (id, score1, score2, winner) => {
-    setBracketState((prev) => ({
-      ...prev,
-      round2: prev.round2.map((m) => (m.id === id ? { ...m, score1, score2, winner } : m)),
-    }));
+    setBracketState((prev) => {
+      const next = {
+        ...prev,
+        round2: prev.round2.map((m) => (m.id === id ? { ...m, score1, score2, winner } : m)),
+      };
+      if (isCloudSyncActive) saveBracketToCloud(next).catch(console.error);
+      return next;
+    });
   };
 
   const updateR3Fixture = (id, score1, score2, winner) => {
-    setBracketState((prev) => ({
-      ...prev,
-      round3Fixtures: prev.round3Fixtures.map((f) => (f.id === id ? { ...f, score1, score2, winner } : f)),
-    }));
+    setBracketState((prev) => {
+      const next = {
+        ...prev,
+        round3Fixtures: prev.round3Fixtures.map((f) => (f.id === id ? { ...f, score1, score2, winner } : f)),
+      };
+      if (isCloudSyncActive) saveBracketToCloud(next).catch(console.error);
+      return next;
+    });
   };
 
   const updateR3FixtureDetails = (id, fields) => {
-    setBracketState((prev) => ({
-      ...prev,
-      round3Fixtures: prev.round3Fixtures.map((f) => (f.id === id ? { ...f, ...fields } : f)),
-    }));
+    setBracketState((prev) => {
+      const next = {
+        ...prev,
+        round3Fixtures: prev.round3Fixtures.map((f) => (f.id === id ? { ...f, ...fields } : f)),
+      };
+      if (isCloudSyncActive) saveBracketToCloud(next).catch(console.error);
+      return next;
+    });
   };
 
   const updatePlayoffMatch = (matchKey, score1, score2, winner, loser = null) => {
-    setBracketState((prev) => ({
-      ...prev,
-      playoffs: {
-        ...prev.playoffs,
-        [matchKey]: { score1, score2, winner, loser },
-      },
-    }));
+    setBracketState((prev) => {
+      const next = {
+        ...prev,
+        playoffs: {
+          ...prev.playoffs,
+          [matchKey]: { score1, score2, winner, loser },
+        },
+      };
+      if (isCloudSyncActive) saveBracketToCloud(next).catch(console.error);
+      return next;
+    });
   };
 
   const resetBracket = () => {
-    setBracketState(INITIAL_BRACKET_STATE);
+    const next = INITIAL_BRACKET_STATE;
+    setBracketState(next);
+    if (isCloudSyncActive) saveBracketToCloud(next).catch(console.error);
   };
 
   const loadDemoData = () => {
-    setBracketState(DEMO_BRACKET_STATE);
+    const next = DEMO_BRACKET_STATE;
+    setBracketState(next);
+    if (isCloudSyncActive) saveBracketToCloud(next).catch(console.error);
   };
 
   return (
     <BracketContext.Provider
       value={{
         bracketState,
+        isCloudSyncActive,
         getR1WinnerName,
         getR2TeamName,
         getR2WinnerName,
