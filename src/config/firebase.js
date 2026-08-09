@@ -1,14 +1,14 @@
 import { initializeApp, getApps, getApp } from 'firebase/app';
 import { getFirestore, doc, onSnapshot, setDoc, getDoc } from 'firebase/firestore';
 
-// Firebase configuration from environment variables (Vite prefix VITE_)
+// Firebase configuration (with default project credentials for direct sync)
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY || '',
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || '',
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || '',
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || '',
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || '',
-  appId: import.meta.env.VITE_FIREBASE_APP_ID || '',
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY || 'AIzaSyAHySEaDfHNpFZTgJoCG4z83Dxv2V4k1Gc',
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || 'test-4d096.firebaseapp.com',
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || 'test-4d096',
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || 'test-4d096.firebasestorage.app',
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || '18247087949',
+  appId: import.meta.env.VITE_FIREBASE_APP_ID || '1:18247087949:web:2545e105b6f2b23c232904',
 };
 
 // Check if Firebase credentials are provided
