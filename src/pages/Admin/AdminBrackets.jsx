@@ -369,7 +369,10 @@ export default function AdminBrackets() {
                     return (
                       <div key={f.id} className="admin-match-control-card">
                         <div className="admin-card-header">
-                          <span className="admin-match-id">LEAGUE MATCH {f.id}</span>
+                          <div className="flex items-center gap-2">
+                            <span className="admin-match-id">LEAGUE MATCH {f.id}</span>
+                            {f.time && <span className="text-[0.65rem] font-mono text-[#F5A623]">{f.time}</span>}
+                          </div>
                           {f.winner && <span className="admin-winner-pill">Winner: {f.winner}</span>}
                         </div>
 

@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const BracketContext = createContext();
 
-const STORAGE_KEY = 'spike_bracket_state_v2';
+const STORAGE_KEY = 'spike_bracket_state_v4';
 
 // Initial default state for 19 Teams tournament with IPL Format Playoffs
 const INITIAL_BRACKET_STATE = {
@@ -25,11 +25,11 @@ const INITIAL_BRACKET_STATE = {
     { id: 14, team1Ref: 8, team2Ref: 9, score1: null, score2: null, winner: null, defaultLabel: 'WINNER 5' },
   ],
   round3Fixtures: [
-    { id: 1, team1Ref: 10, team2Ref: 11, score1: null, score2: null, winner: null },
-    { id: 2, team1Ref: 12, team2Ref: 13, score1: null, score2: null, winner: null },
-    { id: 3, team1Ref: 14, team2Ref: 10, score1: null, score2: null, winner: null },
-    { id: 4, team1Ref: 11, team2Ref: 12, score1: null, score2: null, winner: null },
-    { id: 5, team1Ref: 13, team2Ref: 14, score1: null, score2: null, winner: null },
+    { id: 1, team1: '4DX-B', team2: 'JMP', date: 'TBA', time: '02:00 PM IST', score1: null, score2: null, winner: null },
+    { id: 2, team1: 'ERROR', team2: 'BLAZE', date: 'TBA', time: '03:00 PM IST', score1: null, score2: null, winner: null },
+    { id: 3, team1: 'BLAZE', team2: '4DX-B', date: 'TBA', time: '04:00 PM IST', score1: null, score2: null, winner: null },
+    { id: 4, team1: 'ERROR', team2: 'XCENTRIX', date: 'TBA', time: '09:00 PM IST', score1: null, score2: null, winner: null },
+    { id: 5, team1: 'XCENTRIX', team2: 'JMP', date: 'TBA', time: '10:00 PM IST', score1: null, score2: null, winner: null },
   ],
   playoffs: {
     qualifier1: { score1: null, score2: null, winner: null, loser: null },
@@ -60,17 +60,17 @@ const DEMO_BRACKET_STATE = {
     { id: 14, team1Ref: 8, team2Ref: 9, score1: 2, score2: 1, winner: 'DMatrix', defaultLabel: 'WINNER 5' },
   ],
   round3Fixtures: [
-    { id: 1, team1Ref: 10, team2Ref: 11, score1: 13, score2: 9, winner: '4DX' },
-    { id: 2, team1Ref: 12, team2Ref: 13, score1: 13, score2: 11, winner: 'TPA' },
-    { id: 3, team1Ref: 14, team2Ref: 10, score1: 13, score2: 10, winner: 'DMatrix' },
-    { id: 4, team1Ref: 11, team2Ref: 12, score1: 13, score2: 8, winner: 'DMR' },
-    { id: 5, team1Ref: 13, team2Ref: 14, score1: 11, score2: 13, winner: 'DMatrix' },
+    { id: 1, team1: '4DX-B', team2: 'JMP', date: 'TBA', time: '02:00 PM IST', score1: 13, score2: 9, winner: '4DX-B' },
+    { id: 2, team1: 'ERROR', team2: 'BLAZE', date: 'TBA', time: '03:00 PM IST', score1: 13, score2: 11, winner: 'ERROR' },
+    { id: 3, team1: 'BLAZE', team2: '4DX-B', date: 'TBA', time: '04:00 PM IST', score1: 13, score2: 10, winner: 'BLAZE' },
+    { id: 4, team1: 'ERROR', team2: 'XCENTRIX', date: 'TBA', time: '09:00 PM IST', score1: 13, score2: 8, winner: 'ERROR' },
+    { id: 5, team1: 'XCENTRIX', team2: 'JMP', date: 'TBA', time: '10:00 PM IST', score1: 11, score2: 13, winner: 'JMP' },
   ],
   playoffs: {
-    qualifier1: { score1: 2, score2: 1, winner: 'DMatrix', loser: '4DX' },
-    eliminator: { score1: 2, score2: 0, winner: 'TPA', loser: 'DMR' },
-    qualifier2: { score1: 2, score2: 1, winner: '4DX', loser: 'TPA' },
-    grandFinal: { score1: 2, score2: 1, winner: 'DMatrix', loser: '4DX' },
+    qualifier1: { score1: 2, score2: 1, winner: 'ERROR', loser: '4DX-B' },
+    eliminator: { score1: 2, score2: 0, winner: 'BLAZE', loser: 'JMP' },
+    qualifier2: { score1: 2, score2: 1, winner: '4DX-B', loser: 'BLAZE' },
+    grandFinal: { score1: 2, score2: 1, winner: 'ERROR', loser: '4DX-B' },
   },
 };
 
@@ -116,18 +116,29 @@ export function BracketProvider({ children }) {
     return match?.winner || match?.defaultLabel || `WINNER ${matchId - 9}`;
   };
 
-  // Helper: Get Round 3 fixture team name
+  // Helper: Get Round 3 fixture team name (uses direct data team1/team2 if present)
   const getR3TeamName = (fixture, teamNum) => {
-    const r2Id = teamNum === 1 ? fixture.team1Ref : fixture.team2Ref;
-    return getR2WinnerName(r2Id);
+    if (teamNum === 1) {
+      if (fixture.team1) return fixture.team1;
+      if (fixture.team1Ref) return getR2WinnerName(fixture.team1Ref);
+      return 'Team 1';
+    } else {
+      if (fixture.team2) return fixture.team2;
+      if (fixture.team2Ref) return getR2WinnerName(fixture.team2Ref);
+      return 'Team 2';
+    }
   };
 
-  // Calculate Round 3 League Standings automatically
+  // Calculate Round 3 League Standings automatically from fixture results
   const calculateStandings = () => {
     const teamsMap = {};
-    [10, 11, 12, 13, 14].forEach((r2Id) => {
-      const name = getR2WinnerName(r2Id);
-      teamsMap[name] = { name, played: 0, wins: 0, losses: 0, roundDiff: 0, pts: 0, r2Id };
+
+    // Initialize all teams present across fixtures
+    bracketState.round3Fixtures.forEach((f) => {
+      const t1 = getR3TeamName(f, 1);
+      const t2 = getR3TeamName(f, 2);
+      if (t1 && !teamsMap[t1]) teamsMap[t1] = { name: t1, played: 0, wins: 0, losses: 0, roundDiff: 0, pts: 0 };
+      if (t2 && !teamsMap[t2]) teamsMap[t2] = { name: t2, played: 0, wins: 0, losses: 0, roundDiff: 0, pts: 0 };
     });
 
     bracketState.round3Fixtures.forEach((f) => {
@@ -215,6 +226,13 @@ export function BracketProvider({ children }) {
     }));
   };
 
+  const updateR3FixtureDetails = (id, fields) => {
+    setBracketState((prev) => ({
+      ...prev,
+      round3Fixtures: prev.round3Fixtures.map((f) => (f.id === id ? { ...f, ...fields } : f)),
+    }));
+  };
+
   const updatePlayoffMatch = (matchKey, score1, score2, winner, loser = null) => {
     setBracketState((prev) => ({
       ...prev,
@@ -257,6 +275,7 @@ export function BracketProvider({ children }) {
         updateR1Match,
         updateR2Match,
         updateR3Fixture,
+        updateR3FixtureDetails,
         updatePlayoffMatch,
         resetBracket,
         loadDemoData,

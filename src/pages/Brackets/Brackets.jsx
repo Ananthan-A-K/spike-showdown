@@ -266,7 +266,12 @@ export default function Brackets() {
                           <div key={f.id} className="fixture-row flex-col items-start gap-1">
                             <div className="flex items-center justify-between w-full">
                               <span className="fixture-num">MATCH {f.id}</span>
-                              {f.winner && <span className="text-[0.6rem] font-mono text-[#22C55E]">Winner: {f.winner}</span>}
+                              <div className="flex items-center gap-2">
+                                {f.time && f.time !== 'TBA' && (
+                                  <span className="text-[0.6rem] font-mono text-[#7D8793]">{f.time}</span>
+                                )}
+                                {f.winner && <span className="text-[0.6rem] font-mono text-[#22C55E]">Winner: {f.winner}</span>}
+                              </div>
                             </div>
                             
                             <div className="fixture-vs w-full flex justify-between">
